@@ -1,8 +1,8 @@
-# Drupal Cloud App
+# Decoupled Drupal App
 
-A Next.js application integrated with Drupal Cloud, built with modern web technologies.
+A Next.js application integrated with Decoupled Drupal, built with modern web technologies.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/nextagencyio/drupal-cloud-starter&project-name=my-app)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/nextagencyio/decoupled-starter&project-name=my-app)
 
 ## Features
 
@@ -44,9 +44,9 @@ Copy the example environment file and configure your variables:
 cp .env.example .env.local
 ```
 
-# DrupalCloud CLI (dcloud)
+# Decoupled Drupal CLI (dcloud)
 
-A command-line interface for managing DrupalCloud spaces, monitoring usage, and interacting with the DrupalCloud API using personal access tokens.
+A command-line interface for managing Decoupled Drupal spaces, monitoring usage, and interacting with the Decoupled Drupal API using personal access tokens.
 
 ## Installation
 
