@@ -15,7 +15,16 @@ A Next.js application integrated with Decoupled Drupal, built with modern web te
 
 ## Getting Started
 
-First, install the dependencies:
+### Quick Start
+
+Create a new project from this template:
+
+```bash
+npx degit nextagencyio/decoupled-starter my-app
+cd my-app
+```
+
+Install the dependencies:
 
 ```bash
 npm install
@@ -44,7 +53,7 @@ Copy the example environment file and configure your variables:
 cp .env.example .env.local
 ```
 
-# Decoupled Drupal CLI (dcloud)
+# Decoupled Drupal CLI
 
 A command-line interface for managing Decoupled Drupal spaces, monitoring usage, and interacting with the Decoupled Drupal API using personal access tokens.
 
