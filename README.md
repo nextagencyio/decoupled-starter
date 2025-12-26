@@ -51,7 +51,7 @@ A command-line interface for managing Decoupled Drupal spaces, monitoring usage,
 ## Installation
 
 ```bash
-npm install -g dcloud-cli
+npm install -g decoupled-cli
 ```
 
 ## Requirements
