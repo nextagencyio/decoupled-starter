@@ -70,7 +70,7 @@ export default async function GenericPage({ params }: { params: Promise<{ slug: 
     return (
       <div className="min-h-screen bg-gray-50">
         <Header />
-        <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
           <ErrorBoundary>
             <article className="bg-white rounded-lg shadow-sm overflow-hidden">
               {image && (
@@ -83,9 +83,9 @@ export default async function GenericPage({ params }: { params: Promise<{ slug: 
                   priority={true}
                 />
               )}
-              <div className="p-8">
-                <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">{title}</h1>
-                <div className="prose prose-lg max-w-none" dangerouslySetInnerHTML={{ __html: bodyHtml }} />
+              <div className="p-6 md:p-8">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6">{title}</h1>
+                <div className="prose prose-sm sm:prose lg:prose-lg max-w-none" dangerouslySetInnerHTML={{ __html: bodyHtml }} />
               </div>
             </article>
           </ErrorBoundary>

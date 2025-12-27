@@ -10,9 +10,9 @@ export default function HeroSection({ homepageContent }: HeroSectionProps) {
 
   return (
     <section className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 lg:py-24">
         <div className="text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6">
             {hasHomepageContent && homepageContent.heroTitle ? homepageContent.heroTitle : 'Modern Headless CMS'}
             {hasHomepageContent && homepageContent.heroSubtitle && (
               <span className="block text-purple-200">{homepageContent.heroSubtitle}</span>
@@ -21,14 +21,14 @@ export default function HeroSection({ homepageContent }: HeroSectionProps) {
               <span className="block text-purple-200">Powered by Drupal</span>
             )}
           </h1>
-          <div className="text-xl md:text-2xl text-purple-100 mb-8 max-w-3xl mx-auto">
+          <div className="text-base md:text-xl lg:text-2xl text-purple-100 mb-6 md:mb-8 max-w-3xl mx-auto">
             {hasHomepageContent && homepageContent.heroDescription?.processed ? (
               <div dangerouslySetInnerHTML={{ __html: homepageContent.heroDescription.processed }} />
             ) : (
               <p>Build fast, scalable web applications with the power of Drupal backend and the flexibility of Next.js frontend.</p>
             )}
           </div>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
             <Link
               href="/articles"
               className="inline-flex items-center px-8 py-3 bg-white text-purple-600 rounded-lg hover:bg-gray-100 transition-colors duration-200 font-semibold"

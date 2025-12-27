@@ -29,16 +29,16 @@ export default function FeaturesSection({ homepageContent }: FeaturesSectionProp
   }
 
   return (
-    <section className="py-24">
+    <section className="py-12 md:py-16 lg:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <div className="text-center mb-10 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             {hasHomepageContent && homepageContent.featuresTitle
               ? homepageContent.featuresTitle
               : 'Why Choose Decoupled Drupal?'
             }
           </h2>
-          <div className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <div className="text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
             {hasHomepageContent && homepageContent.featuresSubtitle?.processed ? (
               <div dangerouslySetInnerHTML={{ __html: homepageContent.featuresSubtitle.processed }} />
             ) : (
@@ -58,13 +58,13 @@ export default function FeaturesSection({ homepageContent }: FeaturesSectionProp
               const iconName = (feature as any).icon || inferred || 'database'
 
               return (
-                <div key={feature.id} className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200">
+                <div key={feature.id} className="bg-white p-6 md:p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200">
                   <FeatureIcon
                     iconName={iconName}
                     iconColor={iconColor}
                   />
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">{title}</h3>
-                  <div className="text-gray-600">
+                  <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-3">{title}</h3>
+                  <div className="text-sm md:text-base text-gray-600">
                     <div dangerouslySetInnerHTML={{ __html: description || '' }} />
                   </div>
                 </div>

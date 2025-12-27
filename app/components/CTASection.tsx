@@ -10,15 +10,15 @@ export default function CTASection({ homepageContent }: CTASectionProps) {
   const hasHomepageContent = homepageContent && homepageContent.title
 
   return (
-    <section className="bg-gray-900 text-white py-24">
+    <section className="bg-gray-900 text-white py-16 md:py-20 lg:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
           {hasHomepageContent && homepageContent.ctaTitle
             ? homepageContent.ctaTitle
             : 'Ready to Get Started?'
           }
         </h2>
-        <div className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+        <div className="text-base md:text-lg lg:text-xl text-gray-300 mb-6 md:mb-8 max-w-2xl mx-auto">
           {hasHomepageContent && homepageContent.ctaDescription?.processed ? (
             <div dangerouslySetInnerHTML={{ __html: homepageContent.ctaDescription.processed }} />
           ) : (

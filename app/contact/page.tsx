@@ -12,16 +12,16 @@ export default function Contact() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h1 className="text-3xl font-bold text-gray-900 mb-4">Contact Us</h1>
-            <p className="text-lg text-gray-600">
+          <div className="text-center mb-8 md:mb-12">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Contact Us</h1>
+            <p className="text-base md:text-lg text-gray-600">
               Have questions about Decoupled Drupal? We&#39;d love to hear from you.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
             {/* Contact Information */}
             <div className="bg-white rounded-lg shadow-sm p-8">
               <h2 className="text-2xl font-semibold text-gray-900 mb-6">Get in Touch</h2>
@@ -164,10 +164,10 @@ export default function Contact() {
           </div>
 
           {/* Additional Information */}
-          <div className="mt-12 bg-blue-50 rounded-lg p-8">
+          <div className="mt-8 md:mt-12 bg-blue-50 rounded-lg p-6 md:p-8">
             <div className="text-center">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">Need Immediate Help?</h2>
-              <p className="text-gray-600 mb-6">
+              <h2 className="text-xl md:text-2xl font-semibold text-gray-900 mb-4">Need Immediate Help?</h2>
+              <p className="text-sm md:text-base text-gray-600 mb-6">
                 Check out our documentation and community resources for quick answers to common questions.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
