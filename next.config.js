@@ -21,7 +21,7 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: '*.decoupled.io',
+        hostname: '*.decoupled.website',
         port: '',
         pathname: '/**',
       },
