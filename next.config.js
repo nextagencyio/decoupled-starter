@@ -6,15 +6,24 @@ if (process.env.NODE_ENV === 'development') {
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: [
-      process.env.NEXT_IMAGE_DOMAIN,
-    ].filter(Boolean),
     remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: 'template.localhost',
+        port: '8888',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '*.decoupled.io',
+        port: '',
+        pathname: '/**',
+      },
       {
         protocol: 'https',
         hostname: '*.dcloud.ddev.site',
         port: '',
-        pathname: '**',
+        pathname: '/**',
       },
     ],
     deviceSizes: [640, 750, 828, 1080, 1200, 1440],
