@@ -31,7 +31,7 @@ export default function SetupGuide({ missingVars }: SetupGuideProps) {
             <Settings className="w-8 h-8 text-blue-600" />
           </div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            Welcome to Drupal Cloud!
+            Welcome to Decoupled Drupal!
           </h1>
           <p className="text-gray-600">
             Let&#39;s connect your app to your Drupal backend to get started.
@@ -44,7 +44,7 @@ export default function SetupGuide({ missingVars }: SetupGuideProps) {
               🚀 Quick Setup Required
             </h2>
             <p className="text-blue-800 text-sm">
-              Your app is deployed successfully! Now you need to configure your environment variables to connect to your Drupal Cloud instance.
+              Your app is deployed successfully! Now you need to configure your environment variables to connect to your Decoupled Drupal instance.
             </p>
           </div>
 
@@ -83,10 +83,10 @@ export default function SetupGuide({ missingVars }: SetupGuideProps) {
 
           <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-6">
             <h3 className="font-semibold text-amber-900 mb-2">
-              📋 Get Your Values from Drupal Cloud
+              📋 Get Your Values from Decoupled Drupal
             </h3>
             <p className="text-amber-800 text-sm">
-              Visit your <strong>Drupal Cloud homepage</strong> to find the exact environment variable values you need to copy and paste. They&#39;ll be ready for you there!
+              Visit your <strong>Decoupled Drupal homepage</strong> to find the exact environment variable values you need to copy and paste. They&#39;ll be ready for you there!
             </p>
           </div>
 
@@ -97,7 +97,7 @@ export default function SetupGuide({ missingVars }: SetupGuideProps) {
             <ol className="space-y-2 text-sm text-gray-700">
               <li className="flex items-start">
                 <span className="bg-blue-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-3 mt-0.5">1</span>
-                Get your values from your Drupal Cloud homepage
+                Get your values from your Decoupled Drupal homepage
               </li>
               <li className="flex items-start">
                 <span className="bg-blue-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-3 mt-0.5">2</span>
@@ -113,7 +113,7 @@ export default function SetupGuide({ missingVars }: SetupGuideProps) {
               </li>
               <li className="flex items-start">
                 <span className="bg-blue-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-3 mt-0.5">5</span>
-                Copy and paste each variable from Drupal Cloud
+                Copy and paste each variable from Decoupled Drupal
               </li>
               <li className="flex items-start">
                 <span className="bg-blue-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-3 mt-0.5">6</span>

@@ -11,8 +11,8 @@ import { Metadata } from 'next'
 export const revalidate = 1800
 
 export const metadata: Metadata = {
-  title: 'Articles - Drupal Cloud',
-  description: 'Discover the latest insights, tutorials, and updates from the Drupal Cloud community.',
+  title: 'Articles - Decoupled Drupal',
+  description: 'Discover the latest insights, tutorials, and updates from the Decoupled Drupal community.',
 }
 
 async function getArticles(apolloClient: ReturnType<typeof getServerApolloClient>): Promise<ArticleTeaserData | null> {
@@ -79,7 +79,7 @@ export default async function Articles() {
         <div className="mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Articles</h1>
           <p className="text-xl text-gray-600 max-w-3xl">
-            Discover the latest insights, tutorials, and updates from the Drupal Cloud community.
+            Discover the latest insights, tutorials, and updates from the Decoupled Drupal community.
           </p>
         </div>
 

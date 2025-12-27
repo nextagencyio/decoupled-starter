@@ -22,7 +22,7 @@ export default function CTASection({ homepageContent }: CTASectionProps) {
           {hasHomepageContent && homepageContent.ctaDescription?.processed ? (
             <div dangerouslySetInnerHTML={{ __html: homepageContent.ctaDescription.processed }} />
           ) : (
-            <p>Join thousands of developers building amazing web experiences with Drupal Cloud.</p>
+            <p>Join thousands of developers building amazing web experiences with Decoupled Drupal.</p>
           )}
         </div>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

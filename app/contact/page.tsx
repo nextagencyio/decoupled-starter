@@ -4,8 +4,8 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Contact Us',
-  description: 'Get in touch with the Drupal Cloud team. Contact us for support, questions, or to learn more about our headless CMS solution.',
-  keywords: ['Contact Drupal Cloud', 'Support', 'Help', 'Get in Touch'],
+  description: 'Get in touch with the Decoupled Drupal team. Contact us for support, questions, or to learn more about our headless CMS solution.',
+  keywords: ['Contact Decoupled Drupal', 'Support', 'Help', 'Get in Touch'],
 }
 
 export default function Contact() {
@@ -17,7 +17,7 @@ export default function Contact() {
           <div className="text-center mb-12">
             <h1 className="text-3xl font-bold text-gray-900 mb-4">Contact Us</h1>
             <p className="text-lg text-gray-600">
-              Have questions about Drupal Cloud? We&#39;d love to hear from you.
+              Have questions about Decoupled Drupal? We&#39;d love to hear from you.
             </p>
           </div>
 

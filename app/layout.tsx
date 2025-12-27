@@ -25,14 +25,14 @@ function getSiteUrl(): string {
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
   title: {
-    default: 'Drupal Cloud',
-    template: '%s | Drupal Cloud'
+    default: 'Decoupled Drupal',
+    template: '%s | Decoupled Drupal'
   },
   description: 'Modern headless CMS powered by Drupal with Next.js frontend. Build fast, scalable web applications with GraphQL API.',
   keywords: ['Drupal', 'Next.js', 'GraphQL', 'Headless CMS', 'React', 'TypeScript'],
-  authors: [{ name: 'Drupal Cloud Team' }],
-  creator: 'Drupal Cloud',
-  publisher: 'Drupal Cloud',
+  authors: [{ name: 'Decoupled Drupal Team' }],
+  creator: 'Decoupled Drupal',
+  publisher: 'Decoupled Drupal',
   formatDetection: {
     email: false,
     address: false,

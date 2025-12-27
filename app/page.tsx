@@ -26,21 +26,21 @@ async function getHomepageData(apolloClient: ReturnType<typeof getServerApolloCl
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = 'Modern Headless CMS Powered by Drupal'
-  const description = 'Build fast, scalable web applications with Drupal Cloud. Combine the power of Drupal backend with Next.js frontend for the ultimate development experience.'
+  const description = 'Build fast, scalable web applications with Decoupled Drupal. Combine the power of Drupal backend with Next.js frontend for the ultimate development experience.'
 
   return {
     title,
     description,
-    keywords: ['Drupal Cloud', 'Headless CMS', 'Next.js', 'GraphQL', 'Modern Web Development', 'React'],
+    keywords: ['Decoupled Drupal', 'Headless CMS', 'Next.js', 'GraphQL', 'Modern Web Development', 'React'],
     openGraph: {
-      title: `${title} - Drupal Cloud`,
+      title: `${title} - Decoupled Drupal`,
       description,
       type: 'website',
       locale: 'en_US',
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${title} - Drupal Cloud`,
+      title: `${title} - Decoupled Drupal`,
       description,
     },
   }

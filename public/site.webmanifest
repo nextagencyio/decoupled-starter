@@ -1,6 +1,6 @@
 {
-  "name": "Drupal Cloud",
-  "short_name": "Drupal Cloud",
+  "name": "Decoupled Drupal",
+  "short_name": "Decoupled Drupal",
   "description": "Modern headless CMS powered by Drupal with Next.js frontend",
   "start_url": "/",
   "display": "standalone",

@@ -69,7 +69,7 @@ export async function POST(request: NextRequest) {
     !process.env.DRUPAL_CLIENT_SECRET) {
     return NextResponse.json({
       errors: [{
-        message: 'Drupal Cloud is not configured yet. Please set up your environment variables.',
+        message: 'Decoupled Drupal is not configured yet. Please set up your environment variables.',
         extensions: {
           code: 'CONFIGURATION_REQUIRED',
           missingVars: [

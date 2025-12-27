@@ -35,7 +35,7 @@ export default function FeaturesSection({ homepageContent }: FeaturesSectionProp
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             {hasHomepageContent && homepageContent.featuresTitle
               ? homepageContent.featuresTitle
-              : 'Why Choose Drupal Cloud?'
+              : 'Why Choose Decoupled Drupal?'
             }
           </h2>
           <div className="text-xl text-gray-600 max-w-3xl mx-auto">
