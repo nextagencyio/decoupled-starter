@@ -29,7 +29,7 @@ export default function Contact() {
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0">
-                    <Mail className="w-6 h-6 text-blue-600" />
+                    <Mail className="w-6 h-6 text-purple-600" />
                   </div>
                   <div>
                     <h3 className="text-lg font-medium text-gray-900">Email</h3>
@@ -40,7 +40,7 @@ export default function Contact() {
 
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0">
-                    <Phone className="w-6 h-6 text-blue-600" />
+                    <Phone className="w-6 h-6 text-purple-600" />
                   </div>
                   <div>
                     <h3 className="text-lg font-medium text-gray-900">Phone</h3>
@@ -51,7 +51,7 @@ export default function Contact() {
 
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0">
-                    <MapPin className="w-6 h-6 text-blue-600" />
+                    <MapPin className="w-6 h-6 text-purple-600" />
                   </div>
                   <div>
                     <h3 className="text-lg font-medium text-gray-900">Office</h3>
@@ -65,7 +65,7 @@ export default function Contact() {
 
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0">
-                    <Clock className="w-6 h-6 text-blue-600" />
+                    <Clock className="w-6 h-6 text-purple-600" />
                   </div>
                   <div>
                     <h3 className="text-lg font-medium text-gray-900">Business Hours</h3>
@@ -93,7 +93,7 @@ export default function Contact() {
                       type="text"
                       id="firstName"
                       name="firstName"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-blue-500"
                       required
                     />
                   </div>
@@ -105,7 +105,7 @@ export default function Contact() {
                       type="text"
                       id="lastName"
                       name="lastName"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-blue-500"
                       required
                     />
                   </div>
@@ -119,7 +119,7 @@ export default function Contact() {
                     type="email"
                     id="email"
                     name="email"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-blue-500"
                     required
                   />
                 </div>
@@ -132,7 +132,7 @@ export default function Contact() {
                     type="text"
                     id="subject"
                     name="subject"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-blue-500"
                     required
                   />
                 </div>
@@ -145,7 +145,7 @@ export default function Contact() {
                     id="message"
                     name="message"
                     rows={6}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-blue-500"
                     placeholder="Tell us how we can help you..."
                     required
                   />
@@ -154,7 +154,7 @@ export default function Contact() {
                 <div>
                   <button
                     type="submit"
-                    className="w-full bg-blue-600 text-white py-3 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200 font-medium"
+                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-4 rounded-md hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transition-colors duration-200 font-medium"
                   >
                     Send Message
                   </button>
@@ -173,13 +173,13 @@ export default function Contact() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href="#"
-                  className="inline-flex items-center justify-center px-6 py-3 border border-blue-600 text-blue-600 rounded-md hover:bg-blue-600 hover:text-white transition-colors duration-200 font-medium"
+                  className="inline-flex items-center justify-center px-6 py-3 border border-purple-600 text-purple-600 rounded-md hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:text-white transition-colors duration-200 font-medium"
                 >
                   View Documentation
                 </a>
                 <a
                   href="#"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-200 font-medium"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-md hover:from-blue-700 hover:to-purple-700 transition-colors duration-200 font-medium"
                 >
                   Join Community
                 </a>

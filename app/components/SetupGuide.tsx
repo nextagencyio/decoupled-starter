@@ -24,14 +24,14 @@ export default function SetupGuide({ missingVars }: SetupGuideProps) {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 flex items-center justify-center p-4">
       <div className="max-w-2xl w-full bg-white rounded-2xl shadow-xl p-8">
         <div className="text-center mb-8">
-          <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <Settings className="w-8 h-8 text-blue-600" />
+          <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <Settings className="w-8 h-8 text-purple-600" />
           </div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            Welcome to Decoupled Drupal!
+          <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">
+            Welcome to Decoupled Starter!
           </h1>
           <p className="text-gray-600">
             Let&#39;s connect your app to your Drupal backend to get started.
@@ -39,12 +39,12 @@ export default function SetupGuide({ missingVars }: SetupGuideProps) {
         </div>
 
         <div className="space-y-6">
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-            <h2 className="font-semibold text-blue-900 mb-2">
+          <div className="bg-gradient-to-r from-blue-50 to-purple-50 border border-purple-200 rounded-lg p-4">
+            <h2 className="font-semibold text-purple-900 mb-2">
               🚀 Quick Setup Required
             </h2>
-            <p className="text-blue-800 text-sm">
-              Your app is deployed successfully! Now you need to configure your environment variables to connect to your Decoupled Drupal instance.
+            <p className="text-purple-800 text-sm">
+              Your app is deployed successfully! Now you need to configure your environment variables to connect to your Drupal instance.
             </p>
           </div>
 
@@ -96,27 +96,27 @@ export default function SetupGuide({ missingVars }: SetupGuideProps) {
             </h3>
             <ol className="space-y-2 text-sm text-gray-700">
               <li className="flex items-start">
-                <span className="bg-blue-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-3 mt-0.5">1</span>
-                Get your values from your Decoupled Drupal homepage
+                <span className="bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-3 mt-0.5">1</span>
+                Get your values from your Drupal homepage
               </li>
               <li className="flex items-start">
-                <span className="bg-blue-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-3 mt-0.5">2</span>
+                <span className="bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-3 mt-0.5">2</span>
                 Go to your Vercel dashboard
               </li>
               <li className="flex items-start">
-                <span className="bg-blue-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-3 mt-0.5">3</span>
+                <span className="bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-3 mt-0.5">3</span>
                 Select your project
               </li>
               <li className="flex items-start">
-                <span className="bg-blue-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-3 mt-0.5">4</span>
+                <span className="bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-3 mt-0.5">4</span>
                 Go to Settings → Environment Variables
               </li>
               <li className="flex items-start">
-                <span className="bg-blue-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-3 mt-0.5">5</span>
-                Copy and paste each variable from Decoupled Drupal
+                <span className="bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-3 mt-0.5">5</span>
+                Copy and paste each variable from your Drupal site
               </li>
               <li className="flex items-start">
-                <span className="bg-blue-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-3 mt-0.5">6</span>
+                <span className="bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-3 mt-0.5">6</span>
                 Redeploy your app
               </li>
             </ol>
@@ -134,7 +134,7 @@ export default function SetupGuide({ missingVars }: SetupGuideProps) {
             </a>
             <button
               onClick={() => window.location.reload()}
-              className="flex-1 bg-blue-600 text-white px-4 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+              className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-3 rounded-lg font-medium hover:from-blue-700 hover:to-purple-700 transition-all"
             >
               Check Again
             </button>
@@ -145,7 +145,7 @@ export default function SetupGuide({ missingVars }: SetupGuideProps) {
               Need help? Check out the{' '}
               <a
                 href="#"
-                className="text-blue-600 hover:text-blue-700 underline"
+                className="text-purple-600 hover:text-purple-700 underline"
               >
                 documentation
               </a>

@@ -27,7 +27,7 @@ function DefaultErrorFallback({ error, reset }: { error: Error; reset: () => voi
         </p>
         <button
           onClick={reset}
-          className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 font-semibold"
+          className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-colors duration-200 font-semibold"
         >
           Try again
         </button>

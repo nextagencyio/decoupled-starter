@@ -1,8 +1,8 @@
 'use client'
 
-import { Cloud } from 'lucide-react'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 import clsx from 'clsx'
 
 const navigationItems = [
@@ -32,11 +32,11 @@ export default function Header() {
             {/* Logo */}
             <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity duration-200">
               <div className="flex-shrink-0">
-                <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                  <Cloud className="w-4 h-4 text-white" />
-                </div>
+                <Image src="/logo.svg" alt="Decoupled Starter" width={32} height={32} className="w-8 h-8" />
               </div>
-              <span className="text-lg font-semibold text-gray-900">Decoupled Drupal</span>
+              <span className="text-lg font-semibold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                Decoupled Starter
+              </span>
             </Link>
 
             {/* Navigation Menu */}
@@ -48,7 +48,7 @@ export default function Header() {
                   className={clsx(
                     'whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors',
                     activeTab === item.name
-                      ? 'border-blue-500 text-blue-600'
+                      ? 'border-purple-500 text-purple-600'
                       : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                   )}
                 >
@@ -62,7 +62,7 @@ export default function Header() {
           <div className="flex items-center space-x-4">
             <Link
               href="/contact"
-              className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200 font-medium text-sm"
+              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-md hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transition-all duration-200 font-medium text-sm"
             >
               Contact Us
             </Link>
@@ -80,7 +80,7 @@ export default function Header() {
                   className={clsx(
                     'whitespace-nowrap py-2 px-3 rounded-md text-sm font-medium transition-colors',
                     activeTab === item.name
-                      ? 'bg-blue-100 text-blue-600'
+                      ? 'bg-purple-100 text-purple-600'
                       : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'
                   )}
                 >
@@ -90,7 +90,7 @@ export default function Header() {
             </div>
             <Link
               href="/contact"
-              className="bg-blue-600 text-white px-3 py-2 rounded-md hover:bg-blue-700 transition-colors duration-200 font-medium text-sm ml-4 flex-shrink-0"
+              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-3 py-2 rounded-md hover:from-blue-700 hover:to-purple-700 transition-all duration-200 font-medium text-sm ml-4 flex-shrink-0"
             >
               Contact
             </Link>

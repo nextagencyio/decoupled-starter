@@ -29,7 +29,7 @@ export default function CTASection({ homepageContent }: CTASectionProps) {
           {hasHomepageContent && homepageContent.ctaPrimary ? (
             <Link
               href={homepageContent.ctaPrimary.url}
-              className="inline-flex items-center px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 font-semibold"
+              className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-colors duration-200 font-semibold"
             >
               {homepageContent.ctaPrimary.title}
               <ArrowRight className="ml-2 w-5 h-5" />
@@ -37,7 +37,7 @@ export default function CTASection({ homepageContent }: CTASectionProps) {
           ) : (
             <Link
               href="/articles"
-              className="inline-flex items-center px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 font-semibold"
+              className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-colors duration-200 font-semibold"
             >
               Browse Articles
               <ArrowRight className="ml-2 w-5 h-5" />
