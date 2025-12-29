@@ -82,4 +82,4 @@ export interface HomepageData {
 }
 
 // Feature color type
-export type FeatureColor = 'blue' | 'green' | 'purple' | 'yellow' | 'red' | 'indigo'
+export type FeatureColor = 'amber' | 'orange' | 'yellow' | 'brown' | 'red' | 'green' | 'blue' | 'purple' | 'indigo'

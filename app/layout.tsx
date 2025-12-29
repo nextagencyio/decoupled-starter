@@ -25,14 +25,14 @@ function getSiteUrl(): string {
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
   title: {
-    default: 'Decoupled Drupal',
-    template: '%s | Decoupled Drupal'
+    default: 'Brew & Bean Coffee Shop',
+    template: '%s | Brew & Bean'
   },
-  description: 'Modern headless CMS powered by Drupal with Next.js frontend. Build fast, scalable web applications with GraphQL API.',
-  keywords: ['Drupal', 'Next.js', 'GraphQL', 'Headless CMS', 'React', 'TypeScript'],
-  authors: [{ name: 'Decoupled Drupal Team' }],
-  creator: 'Decoupled Drupal',
-  publisher: 'Decoupled Drupal',
+  description: 'Experience the perfect cup of artisan coffee at Brew & Bean. Freshly roasted beans, expert baristas, and a cozy atmosphere in the heart of downtown.',
+  keywords: ['Coffee Shop', 'Artisan Coffee', 'Fresh Roasted', 'Cafe', 'Espresso', 'Pastries', 'Downtown'],
+  authors: [{ name: 'Brew & Bean Coffee Shop' }],
+  creator: 'Brew & Bean',
+  publisher: 'Brew & Bean',
   formatDetection: {
     email: false,
     address: false,
@@ -68,7 +68,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="font-sans">
+      <body className="font-sans bg-amber-50">
         <ApolloProvider>
           {children}
         </ApolloProvider>

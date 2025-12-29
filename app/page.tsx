@@ -1,5 +1,4 @@
 import HomepageRenderer from './components/HomepageRenderer'
-import SetupGuide from './components/SetupGuide'
 import { Metadata } from 'next'
 import { headers } from 'next/headers'
 import { getServerApolloClient } from '../lib/apollo-client'
@@ -25,39 +24,44 @@ async function getHomepageData(apolloClient: ReturnType<typeof getServerApolloCl
 }
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = 'Modern Headless CMS Powered by Drupal'
-  const description = 'Build fast, scalable web applications with Decoupled Drupal. Combine the power of Drupal backend with Next.js frontend for the ultimate development experience.'
+  const title = 'Brew & Bean Coffee Shop - Craft Coffee Made with Love'
+  const description = 'Experience the perfect cup of artisan coffee at Brew & Bean. Freshly roasted beans, expert baristas, cozy atmosphere, and fresh pastries in the heart of downtown.'
 
   return {
     title,
     description,
-    keywords: ['Decoupled Drupal', 'Headless CMS', 'Next.js', 'GraphQL', 'Modern Web Development', 'React'],
+    keywords: ['Coffee Shop', 'Artisan Coffee', 'Espresso', 'Cafe', 'Fresh Roasted', 'Pastries', 'Downtown Coffee'],
     openGraph: {
-      title: `${title} - Decoupled Drupal`,
+      title,
       description,
       type: 'website',
       locale: 'en_US',
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${title} - Decoupled Drupal`,
+      title,
       description,
     },
   }
 }
 
 export default async function Home() {
-  // Check if the app is properly configured
+  // Check if the app is properly configured with Drupal backend
   const configStatus = checkConfiguration()
-  
-  if (!configStatus.isConfigured) {
-    return <SetupGuide missingVars={configStatus.missingVars} />
+
+  // If configured, try to fetch content from Drupal
+  let homepageContent = null
+  if (configStatus.isConfigured) {
+    try {
+      const requestHeaders = await headers()
+      const apolloClient = getServerApolloClient(requestHeaders)
+      const data = await getHomepageData(apolloClient)
+      homepageContent = data?.nodeHomepages?.nodes?.[0]
+    } catch (error) {
+      console.error('Failed to fetch from Drupal, using default content:', error)
+    }
   }
 
-  const requestHeaders = await headers()
-  const apolloClient = getServerApolloClient(requestHeaders)
-  const data = await getHomepageData(apolloClient)
-  const homepageContent = data?.nodeHomepages?.nodes?.[0]
-
+  // Always render the homepage (with Drupal content if available, default content otherwise)
   return <HomepageRenderer homepageContent={homepageContent} />
 }

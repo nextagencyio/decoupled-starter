@@ -1,0 +1,177 @@
+{
+  "model": [
+    {
+      "bundle": "homepage",
+      "description": "Homepage content for the coffee shop website",
+      "label": "Homepage",
+      "body": false,
+      "fields": [
+        {
+          "id": "hero_title",
+          "label": "Hero Title",
+          "type": "string"
+        },
+        {
+          "id": "hero_subtitle",
+          "label": "Hero Subtitle",
+          "type": "string"
+        },
+        {
+          "id": "hero_description",
+          "label": "Hero Description",
+          "type": "text_formatted"
+        },
+        {
+          "id": "features_title",
+          "label": "Features Title",
+          "type": "string"
+        },
+        {
+          "id": "features_subtitle",
+          "label": "Features Subtitle",
+          "type": "text_formatted"
+        },
+        {
+          "id": "features_items",
+          "label": "Features Items",
+          "type": "paragraph_reference",
+          "target_bundle": "feature_item"
+        },
+        {
+          "id": "cta_title",
+          "label": "CTA Title",
+          "type": "string"
+        },
+        {
+          "id": "cta_description",
+          "label": "CTA Description",
+          "type": "text_formatted"
+        },
+        {
+          "id": "cta_primary",
+          "label": "CTA Primary Button",
+          "type": "link"
+        },
+        {
+          "id": "cta_secondary",
+          "label": "CTA Secondary Button",
+          "type": "link"
+        }
+      ]
+    },
+    {
+      "bundle": "feature_item",
+      "description": "Feature item paragraph for homepage",
+      "label": "Feature Item",
+      "entity_type": "paragraph",
+      "fields": [
+        {
+          "id": "feature_title",
+          "label": "Feature Title",
+          "type": "string"
+        },
+        {
+          "id": "feature_description",
+          "label": "Feature Description",
+          "type": "text_formatted"
+        },
+        {
+          "id": "icon",
+          "label": "Icon",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "id": "homepage_1",
+      "type": "node.homepage",
+      "path": "/",
+      "values": {
+        "title": "Brew & Bean Coffee Shop",
+        "hero_title": "Craft Coffee",
+        "hero_subtitle": "Made with Love",
+        "hero_description": "<p>Experience the perfect cup of artisan coffee, freshly roasted beans, and a cozy atmosphere that feels like home. Every sip tells a story.</p>",
+        "features_title": "Why Choose Brew & Bean?",
+        "features_subtitle": "<p>We're passionate about bringing you the finest coffee experience, from bean to cup.</p>",
+        "cta_title": "Ready for Your Perfect Cup?",
+        "cta_description": "<p>Visit us today or order online for pickup. Your morning ritual starts here.</p>",
+        "cta_primary": {
+          "title": "Order Online",
+          "url": "/order"
+        },
+        "cta_secondary": {
+          "title": "Find Us",
+          "url": "/contact"
+        }
+      }
+    },
+    {
+      "id": "feature_1",
+      "type": "paragraph.feature_item",
+      "parent": "homepage_1",
+      "parent_field": "features_items",
+      "values": {
+        "feature_title": "Freshly Roasted",
+        "feature_description": "<p>Our beans are roasted in-house daily to ensure maximum freshness and flavor in every cup you enjoy.</p>",
+        "icon": "coffee"
+      }
+    },
+    {
+      "id": "feature_2",
+      "type": "paragraph.feature_item",
+      "parent": "homepage_1",
+      "parent_field": "features_items",
+      "values": {
+        "feature_title": "Ethically Sourced",
+        "feature_description": "<p>We partner directly with farmers around the world to bring you sustainable, fair-trade coffee.</p>",
+        "icon": "globe"
+      }
+    },
+    {
+      "id": "feature_3",
+      "type": "paragraph.feature_item",
+      "parent": "homepage_1",
+      "parent_field": "features_items",
+      "values": {
+        "feature_title": "Expert Baristas",
+        "feature_description": "<p>Our skilled baristas are trained in the art of coffee making, crafting each drink with precision and care.</p>",
+        "icon": "users"
+      }
+    },
+    {
+      "id": "feature_4",
+      "type": "paragraph.feature_item",
+      "parent": "homepage_1",
+      "parent_field": "features_items",
+      "values": {
+        "feature_title": "Cozy Atmosphere",
+        "feature_description": "<p>Whether you're working remote or catching up with friends, our space is designed for comfort.</p>",
+        "icon": "home"
+      }
+    },
+    {
+      "id": "feature_5",
+      "type": "paragraph.feature_item",
+      "parent": "homepage_1",
+      "parent_field": "features_items",
+      "values": {
+        "feature_title": "Fresh Pastries",
+        "feature_description": "<p>Pair your coffee with our selection of freshly baked pastries, made in-house every morning.</p>",
+        "icon": "cake"
+      }
+    },
+    {
+      "id": "feature_6",
+      "type": "paragraph.feature_item",
+      "parent": "homepage_1",
+      "parent_field": "features_items",
+      "values": {
+        "feature_title": "Free WiFi",
+        "feature_description": "<p>Stay connected with our complimentary high-speed WiFi - perfect for work or browsing.</p>",
+        "icon": "wifi"
+      }
+    }
+  ]
+}
