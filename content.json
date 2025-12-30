@@ -1,0 +1,44 @@
+{
+  "model": [
+    {
+      "bundle": "example_content",
+      "description": "Example content type for demonstration",
+      "label": "Example Content",
+      "body": true,
+      "fields": [
+        {
+          "id": "subtitle",
+          "label": "Subtitle",
+          "type": "string"
+        },
+        {
+          "id": "featured_image",
+          "label": "Featured Image",
+          "type": "image"
+        },
+        {
+          "id": "tags",
+          "label": "Tags",
+          "type": "string[]"
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "id": "example1",
+      "type": "node.example_content",
+      "path": "/example-content/sample-article",
+      "values": {
+        "title": "Sample Article",
+        "body": "<p>This is sample content for demonstration.</p>",
+        "subtitle": "A subtitle for this article",
+        "tags": [
+          "example",
+          "demo",
+          "content"
+        ]
+      }
+    }
+  ]
+}
