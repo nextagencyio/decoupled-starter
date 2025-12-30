@@ -3,14 +3,8 @@ if (process.env.NODE_ENV === 'development') {
   process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
 }
 
-const path = require('path')
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Set explicit workspace root to silence Turbopack warning
-  turbopack: {
-    root: path.resolve(__dirname),
-  },
   images: {
     remotePatterns: [
       {
