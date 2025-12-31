@@ -7,7 +7,7 @@ export interface ConfigStatus {
 export function checkConfiguration(): ConfigStatus {
   const requiredVars = [
     'NEXT_PUBLIC_DRUPAL_BASE_URL',
-    'DRUPAL_CLIENT_ID', 
+    'DRUPAL_CLIENT_ID',
     'DRUPAL_CLIENT_SECRET',
     'DRUPAL_REVALIDATE_SECRET'
   ]

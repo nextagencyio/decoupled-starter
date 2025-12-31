@@ -13,13 +13,13 @@ export async function GET(
   const resolvedParams = await params
   const path = resolvedParams.path.join('/')
   const drupalBaseUrl = process.env.NEXT_PUBLIC_DRUPAL_BASE_URL
-  
+
   if (!drupalBaseUrl) {
     return NextResponse.json({ error: 'Drupal base URL not configured' }, { status: 500 })
   }
 
   const drupalUrl = `${drupalBaseUrl}/sites/${path}`
-  
+
   try {
     const response = await fetch(drupalUrl, {
       // @ts-ignore - Node.js specific property

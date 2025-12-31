@@ -17,7 +17,7 @@ const INTROSPECTION_QUERY = gql`
 (async () => {
   try {
     console.log("🚀 Starting GraphQL Schema Generation with Apollo Client");
-    
+
     // Load environment variables from both .env and .env.local
     const envPath = path.join(process.cwd(), ".env");
     const envLocalPath = path.join(process.cwd(), ".env.local");
@@ -42,7 +42,7 @@ const INTROSPECTION_QUERY = gql`
     const graphqlUri = `${baseUrl}/graphql`;
 
     console.log(`🔑 Authenticating with: ${authUri}`);
-    
+
     // Get OAuth token using direct fetch
     const authResponse = await fetch(authUri, {
       method: 'POST',
@@ -62,13 +62,13 @@ const INTROSPECTION_QUERY = gql`
     }
 
     const authData = await authResponse.json() as any;
-    
+
     if (!authData.access_token) {
       throw new Error('No access token received from authentication');
     }
 
     const token = `${authData.token_type || 'Bearer'} ${authData.access_token}`;
-    
+
     console.log("✅ Authentication successful");
 
     // Create HTTP link for GraphQL endpoint

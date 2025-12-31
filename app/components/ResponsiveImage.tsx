@@ -34,7 +34,7 @@ export default function ResponsiveImage({
   }
 
   const imageAlt = alt || image.alt || ''
-  
+
   // Set defaults based on context
   const contextDefaults = {
     hero: { sizes: '(max-width: 768px) 100vw, 832px', preferredSize: 'LARGE' as ImageSize },
@@ -42,7 +42,7 @@ export default function ResponsiveImage({
     thumbnail: { sizes: '(max-width: 768px) 50vw, 25vw', preferredSize: 'THUMBNAIL' as ImageSize },
     full: { sizes: '100vw', preferredSize: 'LARGE' as ImageSize },
   }
-  
+
   const finalSizes = sizes || contextDefaults[context].sizes
   const finalPreferredSize = preferredSize || contextDefaults[context].preferredSize
   const aspectRatio = getAspectRatio(image, finalPreferredSize) || aspectRatioFallback
@@ -65,7 +65,7 @@ export default function ResponsiveImage({
 
   // Use fill with container for responsive layout
   return (
-    <div 
+    <div
       className={`relative w-full bg-gray-50 ${className}`}
       style={{
         aspectRatio,

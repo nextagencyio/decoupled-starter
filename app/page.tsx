@@ -49,7 +49,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function Home() {
   // Check if the app is properly configured
   const configStatus = checkConfiguration()
-  
+
   if (!configStatus.isConfigured) {
     return <SetupGuide missingVars={configStatus.missingVars} />
   }
