@@ -1,0 +1,140 @@
+{
+  "model": [
+    {
+      "bundle": "homepage",
+      "description": "Homepage content with hero, features, and CTA sections",
+      "label": "Homepage",
+      "body": false,
+      "fields": [
+        {
+          "id": "hero_title",
+          "label": "Hero Title",
+          "type": "string"
+        },
+        {
+          "id": "hero_subtitle",
+          "label": "Hero Subtitle",
+          "type": "string"
+        },
+        {
+          "id": "hero_description",
+          "label": "Hero Description",
+          "type": "text"
+        },
+        {
+          "id": "features_title",
+          "label": "Features Title",
+          "type": "string"
+        },
+        {
+          "id": "features_subtitle",
+          "label": "Features Subtitle",
+          "type": "text"
+        },
+        {
+          "id": "cta_title",
+          "label": "CTA Title",
+          "type": "string"
+        },
+        {
+          "id": "cta_description",
+          "label": "CTA Description",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "bundle": "article",
+      "description": "Blog articles and news posts",
+      "label": "Article",
+      "body": true,
+      "fields": [
+        {
+          "id": "summary",
+          "label": "Summary",
+          "type": "text"
+        },
+        {
+          "id": "tags",
+          "label": "Tags",
+          "type": "string[]"
+        }
+      ]
+    },
+    {
+      "bundle": "page",
+      "description": "Basic pages for static content",
+      "label": "Page",
+      "body": true,
+      "fields": []
+    }
+  ],
+  "content": [
+    {
+      "id": "homepage1",
+      "type": "node.homepage",
+      "path": "/",
+      "values": {
+        "title": "Welcome to Our Decoupled Site",
+        "hero_title": "Build Modern Web Experiences",
+        "hero_subtitle": "Powered by Decoupled Drupal & Next.js",
+        "hero_description": "<p>Create fast, scalable, and beautiful web applications using the power of headless architecture. Combine Drupal's robust content management with Next.js's cutting-edge frontend capabilities.</p>",
+        "features_title": "Why Choose Decoupled?",
+        "features_subtitle": "<p>Modern web development made simple with the best of both worlds.</p>",
+        "cta_title": "Ready to Get Started?",
+        "cta_description": "<p>Join thousands of developers building the future of the web with Decoupled Drupal.</p>"
+      }
+    },
+    {
+      "id": "article1",
+      "type": "node.article",
+      "path": "/articles/hello-world",
+      "values": {
+        "title": "Hello World - Getting Started with Decoupled",
+        "body": "<p>Welcome to your first article! This is a sample post created to demonstrate the content management capabilities of your Decoupled Drupal setup.</p><h2>What is Decoupled Drupal?</h2><p>Decoupled (or headless) Drupal separates the content management system from the presentation layer. This gives you the freedom to use any frontend technology while still leveraging Drupal's powerful content management features.</p><h2>Benefits</h2><ul><li><strong>Performance</strong> - Static generation and edge caching for blazing fast load times</li><li><strong>Flexibility</strong> - Use any frontend framework you prefer</li><li><strong>Scalability</strong> - Handle massive traffic with ease</li><li><strong>Developer Experience</strong> - Modern tooling and workflows</li></ul><p>Start exploring and building your amazing content!</p>",
+        "summary": "A beginner's guide to getting started with Decoupled Drupal and Next.js for modern web development.",
+        "tags": ["getting-started", "tutorial", "hello-world"]
+      }
+    },
+    {
+      "id": "article2",
+      "type": "node.article",
+      "path": "/articles/graphql-api-guide",
+      "values": {
+        "title": "Understanding the GraphQL API",
+        "body": "<p>Your Decoupled Drupal site comes with a powerful GraphQL API that makes fetching content a breeze.</p><h2>Key Concepts</h2><p>GraphQL allows you to request exactly the data you need, nothing more, nothing less. This makes your API calls efficient and your frontend fast.</p><h3>Queries</h3><p>Use queries to fetch content from your Drupal backend. You can request specific fields, filter results, and even nest related content in a single request.</p><h3>Mutations</h3><p>Mutations allow you to create, update, or delete content programmatically. Perfect for building interactive applications.</p><h2>Example Query</h2><pre><code>query GetArticles {\n  nodeArticles(first: 10) {\n    nodes {\n      title\n      path\n      body {\n        processed\n      }\n    }\n  }\n}</code></pre><p>This query fetches the first 10 articles with their titles, paths, and body content.</p>",
+        "summary": "Learn how to use the GraphQL API to fetch and manage content in your Decoupled Drupal application.",
+        "tags": ["graphql", "api", "development"]
+      }
+    },
+    {
+      "id": "article3",
+      "type": "node.article",
+      "path": "/articles/styling-with-tailwind",
+      "values": {
+        "title": "Styling Your App with Tailwind CSS",
+        "body": "<p>This starter comes pre-configured with Tailwind CSS, a utility-first CSS framework that makes styling your application a joy.</p><h2>Why Tailwind?</h2><p>Tailwind provides low-level utility classes that let you build completely custom designs without leaving your HTML. No more context switching between files!</p><h2>Key Features</h2><ul><li><strong>Utility-First</strong> - Build complex components from simple utilities</li><li><strong>Responsive Design</strong> - Mobile-first breakpoints built right in</li><li><strong>Dark Mode</strong> - Easy theme switching support</li><li><strong>Customizable</strong> - Extend or modify the design system to match your brand</li></ul><h2>Example</h2><p>Creating a beautiful button is as simple as:</p><pre><code>&lt;button className=\"px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600\"&gt;\n  Click Me\n&lt;/button&gt;</code></pre><p>Start styling your content with confidence!</p>",
+        "summary": "Discover how to use Tailwind CSS to create beautiful, responsive designs in your Next.js application.",
+        "tags": ["tailwind", "css", "styling", "design"]
+      }
+    },
+    {
+      "id": "page1",
+      "type": "node.page",
+      "path": "/about",
+      "values": {
+        "title": "About Us",
+        "body": "<p>Welcome to our Decoupled Drupal website! We're passionate about building modern web experiences that are fast, accessible, and delightful to use.</p><h2>Our Mission</h2><p>To demonstrate the power of headless architecture by combining the best content management system (Drupal) with cutting-edge frontend technology (Next.js).</p><h2>The Stack</h2><ul><li><strong>Drupal</strong> - Enterprise-grade content management</li><li><strong>GraphQL</strong> - Efficient, flexible data fetching</li><li><strong>Next.js</strong> - React framework with server-side rendering</li><li><strong>Tailwind CSS</strong> - Utility-first styling</li></ul><p>Feel free to explore and use this starter as the foundation for your next project!</p>"
+      }
+    },
+    {
+      "id": "page2",
+      "type": "node.page",
+      "path": "/features",
+      "values": {
+        "title": "Features",
+        "body": "<h2>Powerful Features for Modern Development</h2><p>This decoupled starter comes packed with features to help you build amazing web applications.</p><h3>Content Management</h3><p>Use Drupal's intuitive admin interface to create and manage your content. Structured content types, media handling, and revision history all included.</p><h3>GraphQL API</h3><p>Query exactly the data you need with our auto-generated GraphQL schema. Includes authentication, caching, and real-time updates.</p><h3>Static Generation</h3><p>Generate static pages at build time for incredible performance. Combined with Incremental Static Regeneration for the best of both worlds.</p><h3>Image Optimization</h3><p>Automatic image optimization and responsive image generation. Serve the right size image for every device.</p><h3>SEO Ready</h3><p>Built-in metadata management, Open Graph tags, and structured data support for maximum search visibility.</p>"
+      }
+    }
+  ]
+}
