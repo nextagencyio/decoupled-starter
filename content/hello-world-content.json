@@ -1,0 +1,70 @@
+{
+  "model": [
+    {
+      "bundle": "hello_world_page",
+      "description": "Hello World page content type",
+      "label": "Hello World Page",
+      "body": true,
+      "fields": [
+        {
+          "id": "subtitle",
+          "label": "Subtitle",
+          "type": "string"
+        },
+        {
+          "id": "welcome_message",
+          "label": "Welcome Message",
+          "type": "string"
+        },
+        {
+          "id": "tags",
+          "label": "Tags",
+          "type": "string[]"
+        }
+      ]
+    },
+    {
+      "bundle": "test_page",
+      "description": "Test page content type for testing purposes",
+      "label": "Test Page",
+      "body": true,
+      "fields": [
+        {
+          "id": "test_title",
+          "label": "Test Title",
+          "type": "string"
+        },
+        {
+          "id": "test_description",
+          "label": "Test Description",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "id": "hello-world-1",
+      "type": "node.hello_world_page",
+      "path": "/hello-world",
+      "values": {
+        "title": "Hello World",
+        "body": "<p>Welcome to the Hello World page! This is a demo page created using decoupled-cli.</p><p>This page demonstrates the content management capabilities of Decoupled Drupal with a Next.js frontend.</p>",
+        "subtitle": "A simple greeting from Decoupled Drupal",
+        "welcome_message": "Hello, World! Welcome to your new space.",
+        "tags": ["hello-world", "demo", "getting-started"]
+      }
+    },
+    {
+      "id": "test-page-1",
+      "type": "node.test_page",
+      "path": "/test",
+      "values": {
+        "title": "Test Page",
+        "body": "<p>This is a test page for validating the content import functionality.</p><p>Use this page to verify that your Decoupled Drupal setup is working correctly.</p>",
+        "test_title": "Content Import Test",
+        "test_description": "This test page was created to verify the decoupled-cli content import feature."
+      }
+    }
+  ]
+}
