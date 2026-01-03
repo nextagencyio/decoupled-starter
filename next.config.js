@@ -1,8 +1,3 @@
-// Bypass SSL verification for development Drupal instances
-if (process.env.NODE_ENV === 'development') {
-  process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
-}
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -15,8 +10,12 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: '*.decoupled.website',
-        port: '',
+        hostname: '**.decoupled.website',
+        pathname: '/**',
+      },
+      {
+        protocol: 'http',
+        hostname: '**.decoupled.website',
         pathname: '/**',
       },
     ],
