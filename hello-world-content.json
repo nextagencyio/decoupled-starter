@@ -1,0 +1,40 @@
+{
+  "model": [
+    {
+      "bundle": "page",
+      "description": "A simple page content type",
+      "label": "Page",
+      "body": true,
+      "fields": []
+    }
+  ],
+  "content": [
+    {
+      "id": "hello-world",
+      "type": "node.page",
+      "path": "/hello-world",
+      "values": {
+        "title": "Hello World",
+        "body": "<h1>Hello World!</h1><p>Welcome to your new Decoupled Drupal space. This is your first piece of content, created to demonstrate the power of the Decoupled platform.</p><p>You can edit this content through the Drupal admin interface or create new content types and pages as needed.</p>"
+      }
+    },
+    {
+      "id": "welcome",
+      "type": "node.page",
+      "path": "/welcome",
+      "values": {
+        "title": "Welcome",
+        "body": "<h1>Welcome to Decoupled</h1><p>This starter project demonstrates how to build a Next.js frontend connected to a Drupal backend.</p><h2>Getting Started</h2><p>Explore the pages and content to understand how the integration works.</p>"
+      }
+    },
+    {
+      "id": "about",
+      "type": "node.page",
+      "path": "/about",
+      "values": {
+        "title": "About",
+        "body": "<h1>About This Project</h1><p>This is a decoupled Drupal project using Next.js as the frontend framework.</p><p>The content is managed in Drupal and consumed via APIs to render on the Next.js frontend.</p>"
+      }
+    }
+  ]
+}
