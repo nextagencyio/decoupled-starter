@@ -1,5 +1,22 @@
 import { gql } from '@apollo/client'
 
+export const GET_HELLO_WORLD_CONTENT = gql`
+  query GetHelloWorldContent($first: Int = 10) {
+    nodeHelloWorlds(first: $first) {
+      nodes {
+        id
+        title
+        subtitle
+        path
+        body {
+          processed
+          summary
+        }
+      }
+    }
+  }
+`
+
 export const GET_ARTICLE_TEASERS = gql`
   query GetArticleTeasers($first: Int = 10) {
     nodeArticles(first: $first, sortKey: CREATED_AT) {
@@ -184,6 +201,16 @@ export const GET_NODE_BY_PATH = gql`
             ctaSecondary {
               title
               url
+            }
+          }
+          ... on NodeHelloWorld {
+            id
+            title
+            subtitle
+            path
+            body {
+              processed
+              summary
             }
           }
         }

@@ -83,3 +83,21 @@ export interface HomepageData {
 
 // Feature color type
 export type FeatureColor = 'blue' | 'green' | 'purple' | 'yellow' | 'red' | 'indigo'
+
+// Hello World content type
+export interface DrupalHelloWorld {
+  id: string
+  title: string
+  subtitle?: string
+  path?: string
+  body?: {
+    processed: string
+    summary?: string
+  }
+}
+
+export interface HelloWorldData {
+  nodeHelloWorlds: {
+    nodes: DrupalHelloWorld[]
+  }
+}

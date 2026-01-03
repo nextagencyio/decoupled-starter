@@ -62,6 +62,34 @@ export default async function GenericPage({ params }: { params: Promise<{ slug: 
       return <HomepageRenderer homepageContent={entity} />
     }
 
+    // Handle hello world nodes
+    if (entity.__typename === 'NodeHelloWorld') {
+      const title = entity.title || 'Untitled'
+      const subtitle = entity.subtitle
+      const bodyHtml = entity?.body?.processed || ''
+
+      return (
+        <div className="min-h-screen bg-gray-50">
+          <Header />
+          <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+            <ErrorBoundary>
+              <article className="bg-white rounded-lg shadow-sm overflow-hidden">
+                <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 p-8 text-white">
+                  <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2">{title}</h1>
+                  {subtitle && (
+                    <p className="text-xl text-blue-100">{subtitle}</p>
+                  )}
+                </div>
+                <div className="p-6 md:p-8">
+                  <div className="prose prose-lg max-w-none" dangerouslySetInnerHTML={{ __html: bodyHtml }} />
+                </div>
+              </article>
+            </ErrorBoundary>
+          </main>
+        </div>
+      )
+    }
+
     // Handle regular page and article nodes
     const title = entity.title || 'Untitled'
     const bodyHtml = entity?.body?.processed || ''
