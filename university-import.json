@@ -1,0 +1,599 @@
+{
+  "model": [
+    {
+      "bundle": "academic_program",
+      "description": "University academic programs and degrees",
+      "label": "Academic Program",
+      "body": true,
+      "fields": [
+        {
+          "id": "program_type",
+          "label": "Program Type",
+          "type": "string",
+          "description": "undergraduate, graduate, doctoral, certificate"
+        },
+        {
+          "id": "department",
+          "label": "Department",
+          "type": "string"
+        },
+        {
+          "id": "duration",
+          "label": "Duration",
+          "type": "string",
+          "description": "e.g., 4 years, 2 years"
+        },
+        {
+          "id": "credits",
+          "label": "Credits Required",
+          "type": "string"
+        },
+        {
+          "id": "featured",
+          "label": "Featured Program",
+          "type": "bool"
+        },
+        {
+          "id": "program_image",
+          "label": "Program Image",
+          "type": "image"
+        },
+        {
+          "id": "highlights",
+          "label": "Program Highlights",
+          "type": "string[]"
+        },
+        {
+          "id": "career_outcomes",
+          "label": "Career Outcomes",
+          "type": "string[]"
+        }
+      ]
+    },
+    {
+      "bundle": "faculty_member",
+      "description": "Faculty and staff profiles",
+      "label": "Faculty Member",
+      "body": true,
+      "fields": [
+        {
+          "id": "position",
+          "label": "Position/Title",
+          "type": "string!"
+        },
+        {
+          "id": "department",
+          "label": "Department",
+          "type": "string"
+        },
+        {
+          "id": "email",
+          "label": "Email",
+          "type": "string"
+        },
+        {
+          "id": "phone",
+          "label": "Phone",
+          "type": "string"
+        },
+        {
+          "id": "office",
+          "label": "Office Location",
+          "type": "string"
+        },
+        {
+          "id": "photo",
+          "label": "Profile Photo",
+          "type": "image"
+        },
+        {
+          "id": "specializations",
+          "label": "Research Specializations",
+          "type": "string[]"
+        },
+        {
+          "id": "featured",
+          "label": "Featured Faculty",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "bundle": "campus_event",
+      "description": "University events and activities",
+      "label": "Campus Event",
+      "body": true,
+      "fields": [
+        {
+          "id": "event_date",
+          "label": "Event Date",
+          "type": "string"
+        },
+        {
+          "id": "event_time",
+          "label": "Event Time",
+          "type": "string"
+        },
+        {
+          "id": "location",
+          "label": "Location",
+          "type": "string"
+        },
+        {
+          "id": "event_type",
+          "label": "Event Type",
+          "type": "string",
+          "description": "lecture, workshop, concert, sports, ceremony"
+        },
+        {
+          "id": "event_image",
+          "label": "Event Image",
+          "type": "image"
+        },
+        {
+          "id": "registration_url",
+          "label": "Registration URL",
+          "type": "string"
+        },
+        {
+          "id": "featured",
+          "label": "Featured Event",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "bundle": "university_news",
+      "description": "University news and announcements",
+      "label": "University News",
+      "body": true,
+      "fields": [
+        {
+          "id": "news_category",
+          "label": "Category",
+          "type": "string",
+          "description": "research, campus, athletics, alumni, admissions"
+        },
+        {
+          "id": "news_image",
+          "label": "Featured Image",
+          "type": "image"
+        },
+        {
+          "id": "author",
+          "label": "Author",
+          "type": "string"
+        },
+        {
+          "id": "featured",
+          "label": "Featured News",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "bundle": "university_page",
+      "description": "Main university landing page with all sections",
+      "label": "University Page",
+      "body": false,
+      "fields": [
+        {
+          "id": "hero_title",
+          "label": "Hero Title",
+          "type": "string!"
+        },
+        {
+          "id": "hero_subtitle",
+          "label": "Hero Subtitle",
+          "type": "string"
+        },
+        {
+          "id": "hero_image",
+          "label": "Hero Background Image",
+          "type": "image"
+        },
+        {
+          "id": "stats_students",
+          "label": "Student Count",
+          "type": "string"
+        },
+        {
+          "id": "stats_faculty",
+          "label": "Faculty Count",
+          "type": "string"
+        },
+        {
+          "id": "stats_programs",
+          "label": "Programs Count",
+          "type": "string"
+        },
+        {
+          "id": "stats_ranking",
+          "label": "National Ranking",
+          "type": "string"
+        },
+        {
+          "id": "about_title",
+          "label": "About Title",
+          "type": "string"
+        },
+        {
+          "id": "about_content",
+          "label": "About Content",
+          "type": "text"
+        },
+        {
+          "id": "mission_statement",
+          "label": "Mission Statement",
+          "type": "text"
+        },
+        {
+          "id": "cta_apply_url",
+          "label": "Apply Now URL",
+          "type": "string"
+        },
+        {
+          "id": "cta_visit_url",
+          "label": "Schedule Visit URL",
+          "type": "string"
+        },
+        {
+          "id": "address",
+          "label": "Campus Address",
+          "type": "string"
+        },
+        {
+          "id": "phone",
+          "label": "Main Phone",
+          "type": "string"
+        },
+        {
+          "id": "email",
+          "label": "Admissions Email",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "id": "cs-program",
+      "type": "node.academic_program",
+      "path": "/programs/computer-science",
+      "values": {
+        "title": "Computer Science",
+        "body": "<p>Our Computer Science program prepares students for careers at the forefront of technology innovation. With cutting-edge facilities, world-class faculty, and strong industry partnerships, graduates are equipped to lead in software development, artificial intelligence, cybersecurity, and beyond.</p><p>Students benefit from hands-on research opportunities, internship programs with leading tech companies, and a curriculum that balances theoretical foundations with practical applications.</p>",
+        "program_type": "undergraduate",
+        "department": "School of Engineering & Applied Sciences",
+        "duration": "4 years",
+        "credits": "120",
+        "featured": true,
+        "program_image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800",
+        "highlights": [
+          "98% job placement within 6 months",
+          "State-of-the-art AI research lab",
+          "Partnership with Google, Microsoft, and Apple",
+          "Award-winning faculty researchers"
+        ],
+        "career_outcomes": [
+          "Software Engineer",
+          "Data Scientist",
+          "Machine Learning Engineer",
+          "Cybersecurity Analyst",
+          "Tech Entrepreneur"
+        ]
+      }
+    },
+    {
+      "id": "mba-program",
+      "type": "node.academic_program",
+      "path": "/programs/mba",
+      "values": {
+        "title": "Master of Business Administration",
+        "body": "<p>The Westfield MBA program develops transformational leaders who drive innovation and create value in a rapidly changing global economy. Our rigorous curriculum combines analytical rigor with real-world application.</p><p>Students engage with industry leaders through our executive mentorship program, complete global immersion experiences, and graduate with the skills to lead organizations through complexity and change.</p>",
+        "program_type": "graduate",
+        "department": "School of Business",
+        "duration": "2 years",
+        "credits": "60",
+        "featured": true,
+        "program_image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800",
+        "highlights": [
+          "Top 25 ranked MBA program nationally",
+          "Average salary increase of 85%",
+          "Global consulting projects",
+          "Executive mentorship program"
+        ],
+        "career_outcomes": [
+          "Management Consultant",
+          "Investment Banker",
+          "Product Manager",
+          "Chief Executive Officer",
+          "Entrepreneur"
+        ]
+      }
+    },
+    {
+      "id": "nursing-program",
+      "type": "node.academic_program",
+      "path": "/programs/nursing",
+      "values": {
+        "title": "Bachelor of Science in Nursing",
+        "body": "<p>Our BSN program prepares compassionate, skilled nurses ready to provide exceptional patient care in diverse healthcare settings. With clinical rotations at top-tier hospitals and simulation labs featuring the latest technology, students gain extensive hands-on experience.</p><p>The program emphasizes evidence-based practice, leadership development, and interdisciplinary collaboration to prepare graduates for the evolving healthcare landscape.</p>",
+        "program_type": "undergraduate",
+        "department": "School of Health Sciences",
+        "duration": "4 years",
+        "credits": "128",
+        "featured": true,
+        "program_image": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800",
+        "highlights": [
+          "100% NCLEX pass rate (3-year average)",
+          "Clinical partnerships with 15+ hospitals",
+          "High-fidelity simulation center",
+          "Interprofessional education opportunities"
+        ],
+        "career_outcomes": [
+          "Registered Nurse",
+          "Nurse Practitioner",
+          "Clinical Nurse Specialist",
+          "Healthcare Administrator",
+          "Nurse Educator"
+        ]
+      }
+    },
+    {
+      "id": "env-science-program",
+      "type": "node.academic_program",
+      "path": "/programs/environmental-science",
+      "values": {
+        "title": "Environmental Science & Sustainability",
+        "body": "<p>Address the pressing environmental challenges of our time with a degree that combines scientific rigor with practical solutions. Our program integrates ecology, climate science, policy, and sustainable development.</p><p>Students conduct field research at our 500-acre nature preserve, collaborate with environmental organizations, and develop the expertise to create a more sustainable future.</p>",
+        "program_type": "undergraduate",
+        "department": "School of Natural Sciences",
+        "duration": "4 years",
+        "credits": "120",
+        "featured": false,
+        "program_image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800",
+        "highlights": [
+          "500-acre research preserve on campus",
+          "Summer research expeditions",
+          "Sustainability consulting projects",
+          "Green campus living laboratory"
+        ],
+        "career_outcomes": [
+          "Environmental Consultant",
+          "Sustainability Manager",
+          "Conservation Scientist",
+          "Policy Analyst",
+          "Climate Researcher"
+        ]
+      }
+    },
+    {
+      "id": "faculty-chen",
+      "type": "node.faculty_member",
+      "path": "/faculty/dr-sarah-chen",
+      "values": {
+        "title": "Dr. Sarah Chen",
+        "body": "<p>Dr. Chen is a leading researcher in artificial intelligence and machine learning, with over 200 published papers and three patents. Her work on neural networks for medical diagnosis has been featured in Nature and Science magazines.</p><p>She founded the AI for Good Lab at Westfield, which develops AI solutions for healthcare, education, and climate challenges.</p>",
+        "position": "Professor of Computer Science",
+        "department": "School of Engineering & Applied Sciences",
+        "email": "s.chen@westfield.edu",
+        "phone": "(555) 123-4501",
+        "office": "Engineering Building, Room 305",
+        "photo": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400",
+        "specializations": [
+          "Artificial Intelligence",
+          "Machine Learning",
+          "Neural Networks",
+          "Healthcare AI"
+        ],
+        "featured": true
+      }
+    },
+    {
+      "id": "faculty-martinez",
+      "type": "node.faculty_member",
+      "path": "/faculty/dr-marcus-martinez",
+      "values": {
+        "title": "Dr. Marcus Martinez",
+        "body": "<p>Dr. Martinez is an award-winning economist whose research focuses on sustainable business practices and the circular economy. He advises Fortune 500 companies on ESG strategy and has served on the President's Council of Economic Advisors.</p><p>His latest book, 'The Sustainable Enterprise,' is used in business schools worldwide.</p>",
+        "position": "Dean, School of Business",
+        "department": "School of Business",
+        "email": "m.martinez@westfield.edu",
+        "phone": "(555) 123-4502",
+        "office": "Business Hall, Room 100",
+        "photo": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400",
+        "specializations": [
+          "Sustainable Business",
+          "Corporate Strategy",
+          "ESG Investing",
+          "Circular Economy"
+        ],
+        "featured": true
+      }
+    },
+    {
+      "id": "faculty-patel",
+      "type": "node.faculty_member",
+      "path": "/faculty/dr-priya-patel",
+      "values": {
+        "title": "Dr. Priya Patel",
+        "body": "<p>Dr. Patel is a pioneering researcher in regenerative medicine and stem cell biology. Her groundbreaking work on tissue engineering has led to new treatments for heart disease and has been funded by the NIH and private foundations.</p><p>She mentors the next generation of biomedical researchers through the Patel Scholars Program.</p>",
+        "position": "Professor of Biomedical Sciences",
+        "department": "School of Health Sciences",
+        "email": "p.patel@westfield.edu",
+        "phone": "(555) 123-4503",
+        "office": "Health Sciences Center, Room 412",
+        "photo": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400",
+        "specializations": [
+          "Regenerative Medicine",
+          "Stem Cell Biology",
+          "Tissue Engineering",
+          "Cardiovascular Research"
+        ],
+        "featured": true
+      }
+    },
+    {
+      "id": "faculty-johnson",
+      "type": "node.faculty_member",
+      "path": "/faculty/dr-james-johnson",
+      "values": {
+        "title": "Dr. James Johnson",
+        "body": "<p>Dr. Johnson is a renowned historian specializing in civil rights history and social movements. His oral history project documenting the experiences of civil rights activists has been archived at the Library of Congress.</p><p>He is the director of the Center for Social Justice and leads the university's community engagement initiatives.</p>",
+        "position": "Professor of History",
+        "department": "School of Arts & Humanities",
+        "email": "j.johnson@westfield.edu",
+        "phone": "(555) 123-4504",
+        "office": "Humanities Building, Room 220",
+        "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400",
+        "specializations": [
+          "Civil Rights History",
+          "Social Movements",
+          "Oral History",
+          "African American Studies"
+        ],
+        "featured": false
+      }
+    },
+    {
+      "id": "event-commencement",
+      "type": "node.campus_event",
+      "path": "/events/commencement-2026",
+      "values": {
+        "title": "Spring Commencement 2026",
+        "body": "<p>Join us as we celebrate the Class of 2026! This year's ceremony will feature keynote speaker Dr. Mae Jemison, the first African American woman in space, and the conferral of degrees to over 3,000 graduates.</p><p>The ceremony will be held at Westfield Stadium, with overflow viewing in the Student Union. A reception follows on the Main Quad.</p>",
+        "event_date": "May 15, 2026",
+        "event_time": "10:00 AM - 1:00 PM",
+        "location": "Westfield Stadium",
+        "event_type": "ceremony",
+        "event_image": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800",
+        "registration_url": "/events/commencement-2026/register",
+        "featured": true
+      }
+    },
+    {
+      "id": "event-innovation",
+      "type": "node.campus_event",
+      "path": "/events/innovation-summit",
+      "values": {
+        "title": "Annual Innovation Summit",
+        "body": "<p>The Innovation Summit brings together entrepreneurs, researchers, and industry leaders to explore breakthrough technologies and startup opportunities. Features pitch competitions, networking sessions, and workshops led by successful founders.</p><p>This year's theme: 'AI for Social Good' - exploring how artificial intelligence can address society's greatest challenges.</p>",
+        "event_date": "March 22-23, 2026",
+        "event_time": "9:00 AM - 6:00 PM",
+        "location": "Innovation Hub & Business Hall",
+        "event_type": "workshop",
+        "event_image": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800",
+        "registration_url": "/events/innovation-summit/register",
+        "featured": true
+      }
+    },
+    {
+      "id": "event-open-house",
+      "type": "node.campus_event",
+      "path": "/events/spring-open-house",
+      "values": {
+        "title": "Spring Open House",
+        "body": "<p>Discover what makes Westfield University special! Prospective students and families are invited to explore our beautiful campus, meet current students and faculty, attend information sessions, and experience campus life firsthand.</p><p>Includes campus tours, academic department presentations, financial aid workshops, and a taste of our award-winning dining services.</p>",
+        "event_date": "April 5, 2026",
+        "event_time": "9:00 AM - 3:00 PM",
+        "location": "Campus-wide",
+        "event_type": "open-house",
+        "event_image": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800",
+        "registration_url": "/events/open-house/register",
+        "featured": true
+      }
+    },
+    {
+      "id": "event-concert",
+      "type": "node.campus_event",
+      "path": "/events/spring-concert",
+      "values": {
+        "title": "Spring Concert Series",
+        "body": "<p>The Department of Music presents its annual Spring Concert Series featuring student ensembles, guest artists, and world premieres of new compositions. Experience the extraordinary talent of Westfield musicians.</p>",
+        "event_date": "April 18-20, 2026",
+        "event_time": "7:30 PM",
+        "location": "Performing Arts Center",
+        "event_type": "concert",
+        "event_image": "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=800",
+        "registration_url": "/events/spring-concert/tickets",
+        "featured": false
+      }
+    },
+    {
+      "id": "news-research-grant",
+      "type": "node.university_news",
+      "path": "/news/record-research-funding",
+      "values": {
+        "title": "Westfield Secures Record $150M in Research Funding",
+        "body": "<p>Westfield University has achieved a historic milestone, securing $150 million in research funding for the 2025-2026 academic year. This represents a 40% increase over last year and positions Westfield among the nation's top research institutions.</p><p>Major grants include $45 million from the NIH for biomedical research, $30 million from the NSF for quantum computing initiatives, and $25 million from the Department of Energy for clean energy technology development.</p><p>'This achievement reflects the extraordinary quality of our faculty and their commitment to solving humanity's greatest challenges,' said President Eleanor Richards. 'We're not just advancing knowledge—we're creating solutions that improve lives.'</p>",
+        "news_category": "research",
+        "news_image": "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800",
+        "author": "Office of Communications",
+        "featured": true
+      }
+    },
+    {
+      "id": "news-sustainability",
+      "type": "node.university_news",
+      "path": "/news/carbon-neutral-campus",
+      "values": {
+        "title": "Westfield Achieves Carbon Neutral Campus Status",
+        "body": "<p>Westfield University has become one of the first major research universities to achieve carbon neutral status, fulfilling a commitment made a decade ago. The milestone was reached through a combination of renewable energy investments, building efficiency upgrades, and innovative carbon capture projects.</p><p>The campus now generates 100% of its electricity from solar and wind sources, with a new solar farm completed last summer. Additionally, the university's fleet has been fully electrified, and all new buildings meet the highest sustainability standards.</p><p>'This achievement demonstrates that academic excellence and environmental responsibility go hand in hand,' said Dr. Lisa Green, Chief Sustainability Officer.</p>",
+        "news_category": "campus",
+        "news_image": "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=800",
+        "author": "Sustainability Office",
+        "featured": true
+      }
+    },
+    {
+      "id": "news-athletics",
+      "type": "node.university_news",
+      "path": "/news/basketball-championship",
+      "values": {
+        "title": "Women's Basketball Team Wins Conference Championship",
+        "body": "<p>The Westfield Warriors women's basketball team captured the conference championship with a thrilling 78-74 victory over rival State University. Junior guard Maya Thompson scored 32 points, including the go-ahead three-pointer with 12 seconds remaining.</p><p>The victory marks the team's first conference title in 15 years and earns them an automatic bid to the NCAA Tournament. Head coach Patricia Williams was named Conference Coach of the Year for the second consecutive season.</p><p>'This team exemplifies everything we want Westfield athletics to be about: excellence, teamwork, and perseverance,' said Athletic Director Robert Chang.</p>",
+        "news_category": "athletics",
+        "news_image": "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=800",
+        "author": "Athletics Communications",
+        "featured": true
+      }
+    },
+    {
+      "id": "news-alumni",
+      "type": "node.university_news",
+      "path": "/news/alumni-entrepreneur-gift",
+      "values": {
+        "title": "Alumni Entrepreneur Donates $50M for Innovation Center",
+        "body": "<p>Tech entrepreneur and Westfield alumna Jennifer Wu '08 has announced a $50 million gift to establish the Wu Innovation Center, a state-of-the-art facility supporting student entrepreneurs and startup development.</p><p>Wu, founder and CEO of CloudTech Solutions, credits her Westfield education with providing the foundation for her success. 'I want to give the next generation of innovators the resources and support I wish I'd had,' Wu said at the announcement ceremony.</p><p>The center will include co-working spaces, prototyping labs, a venture fund for student startups, and a speaker series featuring successful entrepreneurs.</p>",
+        "news_category": "alumni",
+        "news_image": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800",
+        "author": "Development Office",
+        "featured": false
+      }
+    },
+    {
+      "id": "homepage",
+      "type": "node.university_page",
+      "path": "/",
+      "values": {
+        "title": "Westfield University",
+        "hero_title": "Shape Tomorrow",
+        "hero_subtitle": "At Westfield University, we transform curious minds into tomorrow's innovators, leaders, and changemakers",
+        "hero_image": "https://images.unsplash.com/photo-1562774053-701939374585?w=1920",
+        "stats_students": "25,000+",
+        "stats_faculty": "1,800",
+        "stats_programs": "200+",
+        "stats_ranking": "#28",
+        "about_title": "Excellence in Education Since 1892",
+        "about_content": "<p>For over 130 years, Westfield University has been at the forefront of education and discovery. Our vibrant campus community brings together scholars, researchers, and students from around the world, united by a shared commitment to learning, innovation, and making a positive impact.</p><p>With world-class facilities, groundbreaking research opportunities, and a supportive community, Westfield provides the foundation for students to achieve their fullest potential and make meaningful contributions to society.</p>",
+        "mission_statement": "<p>Westfield University is dedicated to the pursuit of knowledge, the advancement of learning, and the preparation of leaders who serve and improve the world. We foster an inclusive community where diverse perspectives strengthen our collective understanding and innovation flourishes.</p>",
+        "cta_apply_url": "/admissions/apply",
+        "cta_visit_url": "/admissions/visit",
+        "address": "One University Drive, Westfield, MA 01085",
+        "phone": "(555) 123-4500",
+        "email": "admissions@westfield.edu"
+      }
+    }
+  ]
+}
