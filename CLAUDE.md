@@ -145,6 +145,19 @@ Your `.env.local` must contain:
 - `DRUPAL_CLIENT_ID=your_oauth_client_id`
 - `DRUPAL_CLIENT_SECRET=your_oauth_client_secret`
 
+**Obtaining OAuth Credentials:**
+
+**Option 1: Using MCP Tool (Recommended)**
+```
+get_oauth_credentials({ spaceId: YOUR_SPACE_ID })
+```
+This returns the complete `.env.local` configuration including `DRUPAL_CLIENT_ID`, `DRUPAL_CLIENT_SECRET`, and `DRUPAL_REVALIDATE_SECRET`.
+
+**Option 2: Manual from Drupal Admin**
+1. Log into your Drupal space (use `npx decoupled-cli spaces login <space_id>` for a one-time login link)
+2. Navigate to Configuration → Simple OAuth → Clients
+3. Create a new OAuth client or copy existing credentials
+
 **Authentication Method Differences:**
 - **Personal Access Token (PAT)** → Works with Decoupled Drupal platform API (spaces, users, organizations, **content import via platform proxy**)
 - **OAuth** → Direct Drupal site API access (alternative method for content import, local development)
@@ -791,11 +804,27 @@ If your code changes aren't showing up:
 npm run generate-schema
 ```
 
-This command:
-- Authenticates with Drupal using OAuth
+This command runs `scripts/generate-schema.ts` which:
+- Authenticates with Drupal using OAuth credentials from `.env.local`
 - Performs GraphQL introspection to get the current schema
-- Generates updated schema files in `/schema/` directory
+- Generates `schema/schema.graphql` (SDL format for reference)
+- Generates `schema/introspection.json` (raw introspection result)
+- Generates `schema/types.ts` (TypeScript types)
 - Validates that new content types are available in GraphQL
+
+**Why Use This Script:**
+The generated schema files provide:
+1. **Accurate field names** - Drupal may transform field IDs (e.g., `in_stock` → `inStock`)
+2. **Correct type structures** - Know exactly what GraphQL returns
+3. **Discovery of all fields** - See every available field including system fields
+4. **IDE autocompletion** - TypeScript types enable better developer experience
+
+**OAuth Credentials Required:**
+The script requires valid OAuth credentials in `.env.local`:
+- `DRUPAL_CLIENT_ID` - OAuth client ID
+- `DRUPAL_CLIENT_SECRET` - OAuth client secret
+
+> **Tip**: Use `get_oauth_credentials({ spaceId: YOUR_SPACE_ID })` MCP tool to retrieve these credentials automatically.
 
 **Add this to your workflow**:
 1. Import content type via DC API
