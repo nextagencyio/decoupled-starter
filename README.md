@@ -44,6 +44,29 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - `npm run build` - Build the application for production
 - `npm run start` - Start the production server
 - `npm run lint` - Run ESLint
+- `npm run generate-schema` - Generate GraphQL schema from Drupal backend
+
+## GraphQL Schema Generation
+
+After importing content types to Drupal, you must regenerate the GraphQL schema to ensure your frontend has access to the new types:
+
+```bash
+npm run generate-schema
+```
+
+This script (`scripts/generate-schema.ts`):
+1. Authenticates with Drupal using OAuth credentials
+2. Performs GraphQL introspection to fetch the current schema
+3. Generates `schema/schema.graphql` (SDL format)
+4. Generates `schema/introspection.json` (raw introspection result)
+5. Generates `schema/types.ts` (TypeScript types)
+
+**Requirements:**
+- `NEXT_PUBLIC_DRUPAL_BASE_URL` - Your Drupal site URL
+- `DRUPAL_CLIENT_ID` - OAuth client ID
+- `DRUPAL_CLIENT_SECRET` - OAuth client secret
+
+> **Note:** OAuth credentials can be obtained from the Drupal admin panel or via the Decoupled CLI/MCP tools (coming soon).
 
 ## Environment Setup
 
