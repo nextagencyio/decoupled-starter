@@ -592,14 +592,31 @@ npm run build
 
 2. **Fix any TypeScript/build errors** that appear
 
-3. **Start development server:**
+3. **Start development server (IMPORTANT - follow these steps):**
+
 ```bash
+# CRITICAL: Kill any existing dev server first to avoid stale cache issues
+pkill -f "next dev" 2>/dev/null || true
+
+# Clear Next.js cache (do this when switching spaces or after major changes)
+rm -rf .next
+
+# Start the dev server
 npm run dev
 ```
 
-4. **Test endpoints:**
-   - Listing page: `http://localhost:3001/[content-type]`
-   - Detail pages: `http://localhost:3001/[content-type]/[slug]`
+4. **Wait for server to be ready** - Look for the "Ready" message in terminal output before testing in browser. Next.js takes a few seconds to compile.
+
+5. **Test endpoints:**
+   - Listing page: `http://localhost:3000/[content-type]`
+   - Detail pages: `http://localhost:3000/[content-type]/[slug]`
+
+**Common Issue: Changes not appearing in browser**
+If your code changes aren't showing up:
+1. Kill the existing dev server: `pkill -f "next dev"`
+2. Clear the cache: `rm -rf .next`
+3. Restart: `npm run dev`
+4. Hard refresh browser: `Cmd+Shift+R` (Mac) or `Ctrl+Shift+R` (Windows/Linux)
 
 ### 6. Testing Checklist
 
