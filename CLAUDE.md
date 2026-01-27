@@ -1035,6 +1035,57 @@ Based on successful product catalog implementation:
 
 **Recommendation**: Use `string[]` for lists (features, specifications) instead of `text[]` to avoid HTML rendering complexity.
 
+### Verify External Images Before Completion
+
+**Problem**: Unsplash or other external image URLs can return 404, resulting in broken images on the page. This is easy to miss if you don't verify.
+
+**Solution**: Before marking the task complete, verify every external image URL returns HTTP 200:
+
+```bash
+# Check each external image URL used in components
+curl -s -o /dev/null -w "%{http_code}" "https://images.unsplash.com/photo-XXXX?w=400&q=80"
+```
+
+**If an image returns 404**: Replace it with a different Unsplash photo ID and re-verify. Do not assume any URL is valid without checking.
+
+**Best Practice**: Run HTTP status checks on all external image URLs as a final validation step before considering frontend work done.
+
+### Parallelize Space Provisioning with Frontend Work
+
+**Problem**: Newly created spaces take 90-100 seconds to provision. Waiting idle during this time is wasteful.
+
+**Solution**: Use the provisioning wait time to do frontend work that doesn't depend on the space being ready:
+
+```
+1. Create space (returns immediately)          ← START
+2. While space provisions (~90s), do in parallel:
+   - Write the import JSON file
+   - Create TypeScript types and interfaces
+   - Scaffold component files and page structure
+   - Write static/layout portions of components (nav, footer, hero markup)
+   - Prepare GraphQL queries (field names may need verification later)
+3. Space ready → get OAuth credentials          ← SPACE READY
+4. Update .env.local with new credentials
+5. Import content
+6. Run generate-schema
+7. Verify/adjust GraphQL field names in queries
+8. Final build and test
+```
+
+**What can be done during the wait**:
+- Import JSON creation (content model + sample data)
+- Component scaffolding (layout, styling, static content)
+- TypeScript type definitions (may need minor adjustments after schema generation)
+- Page file creation with data-fetching boilerplate
+- Navigation updates
+
+**What must wait until after provisioning**:
+- `.env.local` credential updates
+- Content import
+- `npm run generate-schema`
+- GraphQL field name verification
+- Build and runtime testing
+
 ### Build Process Integration
 
 **Essential Commands Sequence**:
