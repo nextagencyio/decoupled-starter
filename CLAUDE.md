@@ -18,154 +18,42 @@ This document provides Claude Code with comprehensive instructions for building 
 - `DRUPAL_REVALIDATE_SECRET` - Secret for on-demand revalidation
 - `NODE_TLS_REJECT_UNAUTHORIZED=0` - Allow self-signed certificates (development)
 
-## DC CLI Setup
+## MCP Tools for Space Management
 
-**First-time CLI setup:**
-```bash
-# 1. Install decoupled-cli locally (if not already present in package.json)
-npm install --save-dev decoupled-cli
+This project is designed to work with AI assistants (Claude Code, Cursor) via the Model Context Protocol (MCP). All space and content operations are performed through MCP tools.
 
-# 2. Configure authentication - you have two options:
+### Available MCP Tools
 
-# Option A: Use OAuth with your existing Drupal credentials (recommended for local development)
-npx decoupled-cli auth oauth
+**Space Management:**
+- `list_spaces()` - List all Drupal spaces in your organization
+- `get_space({ id: SPACE_ID })` - Get detailed space information
+- `create_space({ name: "My Space", type: "starter" })` - Create a new space (types: starter, growth)
+- `clone_space({ id: SPACE_ID, name: "Clone Name" })` - Clone an existing space
+- `delete_space({ id: SPACE_ID })` - Delete a space permanently
 
-# Option B: Use personal access token (for production/remote deployments)
-npx decoupled-cli auth login
+**Content Management:**
+- `import_content({ spaceId: SPACE_ID, content: {...} })` - Import content types and data
+- `get_import_example()` - Get the correct JSON format for content import
 
-# 3. Set your default space for content imports (optional but recommended)
-npx decoupled-cli spaces use <space_id>
+**Credentials & Utilities:**
+- `get_oauth_credentials({ spaceId: SPACE_ID })` - Get OAuth credentials for `.env.local`
+- `get_login_link({ spaceId: SPACE_ID })` - Get one-time admin login URL
+- `get_usage()` - Get organization-wide usage statistics
+- `get_space_usage({ id: SPACE_ID })` - Get space-specific usage
+- `get_organization()` - Get organization details
 
-# 4. Verify authentication and space setup
-npx decoupled-cli spaces current
-```
+### Obtaining OAuth Credentials
 
-## Space Management
-
-**Creating a new space:**
-```bash
-# Create a space with default type (starter)
-npx decoupled-cli spaces create "My New Space"
-
-# Create a space with specific type
-npx decoupled-cli spaces create "Production Site" --type pro
-npx decoupled-cli spaces create "Enterprise App" --type premium
-
-# Available types: starter, pro, premium
-
-# Create with description
-npx decoupled-cli spaces create "E-commerce Platform" \
-  --type premium \
-  --description "Main production e-commerce site"
-```
-
-**Quick Start with AI (One-Shot Workflow) ⚡:**
-
-The fastest way to get started! Create a space with AI-generated content types and sample data from a single prompt:
-
-```bash
-# One command to create space + content
-npx decoupled-cli spaces quick-start "blog about coffee"
-
-# Preview AI-generated content first
-npx decoupled-cli spaces quick-start "e-commerce store" --preview
-
-# Custom configuration
-npx decoupled-cli spaces quick-start "portfolio site" \
-  --name "my-portfolio" \
-  --type premium
-
-# Add to existing space
-npx decoupled-cli spaces quick-start "add products" --space-id 123
-```
-
-**What it does:**
-1. 🤖 AI generates content type schema + sample data from your prompt
-2. 🚀 Creates space (or uses `--space-id`)
-3. ⏳ Waits for space to be ready
-4. 📥 Imports generated content automatically
-5. 🎉 Displays GraphQL endpoint and next steps
-
-**Benefits:**
-- ✅ No JSON writing - just describe what you want
-- ✅ Instant prototypes for demos and POCs
-- ✅ Learns from examples/content-import-sample.json patterns
-- ✅ Uses centrally-managed AI (no API keys needed)
-- ✅ Works with PAT authentication only
-
-**Example use cases:**
-- `"blog with posts about travel"` → Creates post content type with sample travel articles
-- `"e-commerce with products"` → Creates product content type with pricing, images, inventory
-- `"events calendar"` → Creates event content type with dates, locations, speakers
-- `"team directory"` → Creates team_member content type with bios, photos, roles
-
-**Listing and managing spaces:**
-```bash
-# List all spaces
-npx decoupled-cli spaces list
-
-# List with detailed information
-npx decoupled-cli spaces list --detailed
-
-# Get space details by ID or name
-npx decoupled-cli spaces get 123
-npx decoupled-cli spaces get my-space-name
-
-# Check space status
-npx decoupled-cli spaces status 123
-
-# Set default space for operations
-npx decoupled-cli spaces use 123
-npx decoupled-cli spaces current
-```
-
-**Other space operations:**
-```bash
-# Clone an existing space
-npx decoupled-cli spaces clone 123 --name "Development Copy"
-
-# Update space name or type
-npx decoupled-cli spaces update 123 --name "Updated Name"
-npx decoupled-cli spaces update 123 --type premium
-
-# Get Drupal admin login link
-npx decoupled-cli spaces login 123
-
-# Archive/unarchive spaces
-npx decoupled-cli spaces archive 123
-npx decoupled-cli spaces unarchive 123
-
-# Delete space (with confirmation)
-npx decoupled-cli spaces delete 123
-```
-
-**OAuth Prerequisites (for `decoupled-cli auth oauth`):**
-Your `.env.local` must contain:
-- `NEXT_PUBLIC_DRUPAL_BASE_URL=https://your-space.decoupled.io`
-- `DRUPAL_CLIENT_ID=your_oauth_client_id`
-- `DRUPAL_CLIENT_SECRET=your_oauth_client_secret`
-
-**Obtaining OAuth Credentials:**
-
-**Option 1: Using MCP Tool (Recommended)**
+**Using MCP Tool (Recommended):**
 ```
 get_oauth_credentials({ spaceId: YOUR_SPACE_ID })
 ```
 This returns the complete `.env.local` configuration including `DRUPAL_CLIENT_ID`, `DRUPAL_CLIENT_SECRET`, and `DRUPAL_REVALIDATE_SECRET`.
 
-**Option 2: Manual from Drupal Admin**
-1. Log into your Drupal space (use `npx decoupled-cli spaces login <space_id>` for a one-time login link)
+**Manual from Drupal Admin:**
+1. Get a login link: `get_login_link({ spaceId: YOUR_SPACE_ID })`
 2. Navigate to Configuration → Simple OAuth → Clients
 3. Create a new OAuth client or copy existing credentials
-
-**Authentication Method Differences:**
-- **Personal Access Token (PAT)** → Works with Decoupled Drupal platform API (spaces, users, organizations, **content import via platform proxy**)
-- **OAuth** → Direct Drupal site API access (alternative method for content import, local development)
-
-**If CLI is not available locally:**
-- For projects with decoupled-cli in package.json: Run `npm install` then use `npx decoupled-cli`
-- For development: `cd cli && npm install && npm run build && npm link` then use `decoupled-cli`
-- Always prefer using `npx decoupled-cli` for consistency and local package management
 
 ## End-to-End Development Workflow
 
@@ -185,9 +73,9 @@ Use a single PAT token for all operations including content import via the platf
 
 **Create a todo list for tracking progress:**
 ```markdown
-1. Verify DC CLI authentication (npx decoupled-cli auth status)
-2. Create DC Import JSON for [content_type]
-3. Import content type and sample content via platform (npx decoupled-cli spaces content-import <space_id> --file import.json)
+1. Get OAuth credentials via MCP: get_oauth_credentials({ spaceId: SPACE_ID })
+2. Create DC Import JSON for [content_type] using get_import_example()
+3. Import content type via MCP: import_content({ spaceId: SPACE_ID, content: {...} })
 4. **CRITICAL**: Run schema generation (`npm run generate-schema`) to update GraphQL schema
 5. Create TypeScript types and GraphQL queries
 6. Build frontend components ([ContentCard], [ContentRenderer])
@@ -196,53 +84,24 @@ Use a single PAT token for all operations including content import via the platf
 9. Validate end-to-end functionality
 ```
 
-**Alternative Workflow (OAuth + Direct Drupal API):**
-```markdown
-1. Set up OAuth authentication (npx decoupled-cli auth oauth)
-2. Create DC Import JSON for [content_type]
-3. Import content type and sample content to Drupal directly (npx decoupled-cli content import --file import.json)
-4. **CRITICAL**: Run schema generation (`npm run generate-schema`) to update GraphQL schema
-5. Create TypeScript types and GraphQL queries
-6. Build frontend components ([ContentCard], [ContentRenderer])
-7. Create listing and detail pages
-8. Test build process and fix errors
-9. Validate end-to-end functionality
-```
+### 0. MCP Setup Verification
 
-### 0. CLI Authentication Check
+**Before starting development, verify MCP access:**
+1. List available spaces: `list_spaces()`
+2. Get your space details: `get_space({ id: SPACE_ID })`
+3. Get OAuth credentials: `get_oauth_credentials({ spaceId: SPACE_ID })`
+4. Update `.env.local` with the returned credentials
 
-**ALWAYS start by verifying CLI setup:**
-```bash
-# Check if CLI is authenticated
-npx decoupled-cli auth status
-
-# If not authenticated, choose authentication method:
-# For local development with Drupal OAuth:
-npx decoupled-cli auth oauth
-
-# For production with personal access token:
-npx decoupled-cli auth login
-
-# List available spaces and set default
-npx decoupled-cli spaces list
-npx decoupled-cli spaces use <space_id>
-```
-
-**If CLI authentication fails:**
-- For OAuth: Verify `.env.local` contains `NEXT_PUBLIC_DRUPAL_BASE_URL`, `DRUPAL_CLIENT_ID`, `DRUPAL_CLIENT_SECRET`
-- For personal tokens: Check that DC platform is accessible
-- Ensure user has proper permissions for the operations you're trying to perform
-
-**Important: Command Availability by Authentication Method**
-- **OAuth commands**: `content import`, `content status`, `auth status`
-- **PAT-only commands**: `spaces list`, `spaces use`, `usage`, `org info`
-- **Universal commands**: `auth login`, `auth oauth`, `auth test`
+**If MCP tools are not available:**
+- Ensure MCP server is configured in your AI assistant (Claude Code or Cursor)
+- Verify your Personal Access Token (PAT) is valid
+- Check MCP server connection at https://mcp.decoupled.io
 
 ### 2. DC Import JSON Creation
 
-**Get example format with CLI:**
-```bash
-npx decoupled-cli spaces content-import --example > my-content-type.json
+**Get example format via MCP:**
+```
+get_import_example()
 ```
 
 **Use this JSON structure:**
@@ -304,32 +163,26 @@ npx decoupled-cli spaces content-import --example > my-content-type.json
   ```
   Always read the `NEXT_PUBLIC_DRUPAL_BASE_URL` from `.env.local` and use that as the base for image URIs to ensure images load correctly from the Drupal backend.
 
-### 3. Import via DC CLI
+### 3. Import via MCP
 
-**Import Content Type (Recommended - PAT Only):**
-```bash
-# Import via platform proxy using PAT token (Contentful-like simplicity)
-# No OAuth credentials needed - just your PAT token!
-npx decoupled-cli spaces content-import <space_id> --file content-type-import.json
-
-# Or let the CLI use your default space
-npx decoupled-cli spaces content-import --file content-type-import.json
+**Import Content Type:**
+```
+import_content({
+  spaceId: YOUR_SPACE_ID,
+  content: {
+    "model": [...],
+    "content": [...]
+  }
+})
 ```
 
-**Alternative: Direct Drupal Import (OAuth Required):**
-```bash
-# Import directly to your Drupal site (requires OAuth authentication)
-npx decoupled-cli content import --file content-type-import.json
-
-# Or preview first to see what will be imported
-npx decoupled-cli content import --file content-type-import.json --preview
+**Preview before importing:**
 ```
-
-**Generate example import file:**
-```bash
-# Get example import JSON structure (works with both methods)
-npx decoupled-cli content import --example > content-type-import.json
-# Then edit the generated file with your content type definition
+import_content({
+  spaceId: YOUR_SPACE_ID,
+  content: {...},
+  preview: true
+})
 ```
 
 **Always check the response for success and note:**
@@ -352,13 +205,6 @@ grep -i [your_content_type] schema/schema.graphql
 
 # Example for products:
 grep -i product schema/schema.graphql
-```
-
-**Test that content was imported successfully:**
-```bash
-# Check that new content type appears in generated schema
-npm run generate-schema
-grep -i [your_content_type] schema/schema.graphql
 ```
 
 ### 4. Frontend Implementation
@@ -763,10 +609,11 @@ If your code changes aren't showing up:
 ### Common Issues
 
 **1. DC Import Fails**
-- Check OAuth token expiration
-- Verify JSON structure matches `schema/sample.json` format
+- Use `get_import_example()` to verify correct JSON format
+- Verify JSON structure matches the example format
 - Ensure field IDs don't start with `field_`
 - **Critical**: In content values, use field ID without "field_" prefix (e.g., `"price": "$299.99"` not `"field_price": "$299.99"`)
+- Check space status with `get_space({ id: SPACE_ID })`
 
 **2. GraphQL Errors**
 - Check if content type was created successfully in Drupal
@@ -827,7 +674,7 @@ The script requires valid OAuth credentials in `.env.local`:
 > **Tip**: Use `get_oauth_credentials({ spaceId: YOUR_SPACE_ID })` MCP tool to retrieve these credentials automatically.
 
 **Add this to your workflow**:
-1. Import content type via DC API
+1. Import content type via MCP: `import_content({ spaceId: SPACE_ID, content: {...} })`
 2. **Immediately run**: `npm run generate-schema`
 3. Check generated schema includes your new content type
 4. Test GraphQL queries
@@ -835,83 +682,77 @@ The script requires valid OAuth credentials in `.env.local`:
 
 ### Debug Commands
 
-```bash
-# Check CLI authentication status
-npx decoupled-cli auth status
+**MCP Tools for Debugging:**
+```
+# List available spaces
+list_spaces()
 
-# OAUTH/DRUPAL COMMANDS:
-# Check content import API status
-npx decoupled-cli content status
+# Get space details and status
+get_space({ id: SPACE_ID })
+
+# Get organization info
+get_organization()
+
+# Get usage statistics
+get_usage()
+
+# Get login link to access Drupal admin
+get_login_link({ spaceId: SPACE_ID })
 
 # Preview content import without applying changes
-npx decoupled-cli content import --file your-import.json --preview
+import_content({ spaceId: SPACE_ID, content: {...}, preview: true })
+```
 
-# Import content to Drupal
-npx decoupled-cli content import --file your-import.json
-
+**Local Development Commands:**
+```bash
 # Generate fresh schema (most important after any import)
 npm run generate-schema
 
-# PAT/PLATFORM COMMANDS (require npx decoupled-cli auth login):
-# List available spaces
-npx decoupled-cli spaces list
+# Build and validate TypeScript
+npm run build
 
-# Check current default space
-npx decoupled-cli spaces current
-
-# Get health status of DC platform
-npx decoupled-cli health check
-
-# Check organization info
-npx decoupled-cli org info
-
-# Legacy platform content import
-npx decoupled-cli spaces content-import --file your-import.json --preview
-npx decoupled-cli spaces content-import --file your-import.json --json
+# Start development server
+npm run dev
 ```
 
-## Content Import Command Reference
+## Content Import Reference
 
-### OAuth + Drupal API Commands
+### MCP Content Import
 
-**Check content import API status:**
-```bash
-npx decoupled-cli content status
+**Get example import format:**
 ```
-
-**Generate example import JSON:**
-```bash
-npx decoupled-cli content import --example > my-content-type.json
+get_import_example()
 ```
 
 **Preview import (dry run):**
-```bash
-npx decoupled-cli content import --file my-content-type.json --preview
+```
+import_content({
+  spaceId: YOUR_SPACE_ID,
+  content: { "model": [...], "content": [...] },
+  preview: true
+})
 ```
 
 **Import content to Drupal:**
-```bash
-npx decoupled-cli content import --file my-content-type.json
+```
+import_content({
+  spaceId: YOUR_SPACE_ID,
+  content: { "model": [...], "content": [...] }
+})
 ```
 
-### Authentication Setup for Content Import
+### Environment Setup
 
-**Quick OAuth Setup (recommended for local development):**
-```bash
-# 1. Ensure .env.local has OAuth credentials
-# 2. Set up OAuth profile
-npx decoupled-cli auth oauth
-
-# 3. Verify it's working
-npx decoupled-cli content status
-
-# 4. Import content
-npx decoupled-cli content import --file your-content.json
+**Get OAuth credentials for local development:**
+```
+get_oauth_credentials({ spaceId: YOUR_SPACE_ID })
 ```
 
-**When to use PAT vs OAuth:**
-- **PAT (Recommended)**: All operations including content import, space management, production deployments - **just like Contentful's CMA token**
-- **OAuth**: Alternative method for direct Drupal API access, local development with existing Drupal credentials
+This returns all required environment variables for `.env.local`:
+- `NEXT_PUBLIC_DRUPAL_BASE_URL`
+- `DRUPAL_CLIENT_ID`
+- `DRUPAL_CLIENT_SECRET`
+- `DRUPAL_REVALIDATE_SECRET`
 
 ## Best Practices
 

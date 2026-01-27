@@ -76,20 +76,15 @@ Copy the example environment file and configure your variables:
 cp .env.example .env.local
 ```
 
-# Decoupled Drupal CLI
+## MCP Integration
 
-A command-line interface for managing Decoupled Drupal spaces, monitoring usage, and interacting with the Decoupled Drupal API using personal access tokens.
+This template is designed to work seamlessly with AI assistants (Claude Code, Cursor) via the Model Context Protocol (MCP). Configure your MCP server to enable:
 
-## Installation
+- **Space Management** - Create, clone, and manage Drupal spaces
+- **Content Import** - Import content types and data directly
+- **OAuth Credentials** - Retrieve environment variables automatically
 
-```bash
-npm install -g decoupled-cli
-```
-
-## Requirements
-
-- Node.js 14.0.0 or later
-- npm, yarn, or pnpm
+See [MCP Documentation](https://docs.decoupled.io/mcp) for setup instructions.
 
 ## About
 
