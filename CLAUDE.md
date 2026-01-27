@@ -1050,6 +1050,34 @@ curl -s -o /dev/null -w "%{http_code}" "https://images.unsplash.com/photo-XXXX?w
 
 **Best Practice**: Run HTTP status checks on all external image URLs as a final validation step before considering frontend work done.
 
+### NEVER Use Drupal Placeholder for Image Fields — Always Use Real URLs
+
+**Problem**: Using the Drupal placeholder path (`/modules/custom/dc_import/resources/placeholder.png`) for `image` fields in DC import content results in missing or broken images on the frontend. The placeholder file may not exist, may not be properly served, or may produce an empty/invisible image. This is especially problematic when only some content items use real URLs and others use placeholders — the result is an inconsistent page with some cards showing images and others blank.
+
+**Solution**: For **every** `image` or `image[]` field value in DC import JSON, always use a real, externally-hosted image URL (e.g., Unsplash) — never the Drupal placeholder. Verify each URL returns HTTP 200 before importing.
+
+```json
+// WRONG — placeholder produces missing/broken images
+"program_image": {
+  "uri": "https://YOUR_SPACE.decoupled.website/modules/custom/dc_import/resources/placeholder.png",
+  "alt": "Description",
+  "title": "Title"
+}
+
+// CORRECT — real Unsplash image, verified to return 200
+"program_image": {
+  "uri": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80",
+  "alt": "Description",
+  "title": "Title"
+}
+```
+
+**Checklist for image fields in DC imports**:
+1. Every `image` / `image[]` field must use a real, publicly-accessible URL
+2. Verify each URL with `curl -s -o /dev/null -w "%{http_code}" URL` — must return 200
+3. Never mix real URLs and placeholders across content items of the same type
+4. If using Unsplash, add `images.unsplash.com` to `next.config.js` `remotePatterns`
+
 ### Parallelize Space Provisioning with Frontend Work
 
 **Problem**: Newly created spaces take 90-100 seconds to provision. Waiting idle during this time is wasteful.
