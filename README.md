@@ -66,7 +66,7 @@ This script (`scripts/generate-schema.ts`):
 - `DRUPAL_CLIENT_ID` - OAuth client ID
 - `DRUPAL_CLIENT_SECRET` - OAuth client secret
 
-> **Note:** OAuth credentials can be obtained from the Drupal admin panel or via the Decoupled CLI/MCP tools (coming soon).
+> **Note:** OAuth credentials can be obtained via the MCP tool `get_oauth_credentials({ spaceId: YOUR_SPACE_ID })` or from the Drupal admin panel.
 
 ## Environment Setup
 

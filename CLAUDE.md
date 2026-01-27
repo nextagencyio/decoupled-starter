@@ -147,12 +147,16 @@ Your `.env.local` must contain:
 
 **Obtaining OAuth Credentials:**
 
-Currently, OAuth credentials must be obtained manually from the Drupal admin panel:
+**Option 1: Using MCP Tool (Recommended)**
+```
+get_oauth_credentials({ spaceId: YOUR_SPACE_ID })
+```
+This returns the complete `.env.local` configuration including `DRUPAL_CLIENT_ID`, `DRUPAL_CLIENT_SECRET`, and `DRUPAL_REVALIDATE_SECRET`.
+
+**Option 2: Manual from Drupal Admin**
 1. Log into your Drupal space (use `npx decoupled-cli spaces login <space_id>` for a one-time login link)
 2. Navigate to Configuration → Simple OAuth → Clients
 3. Create a new OAuth client or copy existing credentials
-
-> **Gap in Current Tooling**: The MCP tools and CLI should provide a way to automatically generate or retrieve OAuth credentials for a space. This would enable seamless frontend integration without manual Drupal admin access. See feature request for `get_oauth_credentials` MCP tool.
 
 **Authentication Method Differences:**
 - **Personal Access Token (PAT)** → Works with Decoupled Drupal platform API (spaces, users, organizations, **content import via platform proxy**)
@@ -803,7 +807,7 @@ The script requires valid OAuth credentials in `.env.local`:
 - `DRUPAL_CLIENT_ID` - OAuth client ID
 - `DRUPAL_CLIENT_SECRET` - OAuth client secret
 
-> **TODO**: MCP tools and CLI should provide a way to generate or retrieve OAuth credentials for a space. Currently, credentials must be obtained manually from the Drupal admin panel.
+> **Tip**: Use `get_oauth_credentials({ spaceId: YOUR_SPACE_ID })` MCP tool to retrieve these credentials automatically.
 
 **Add this to your workflow**:
 1. Import content type via DC API
