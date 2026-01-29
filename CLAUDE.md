@@ -1145,6 +1145,61 @@ npm run dev            # Test in development
 
 **Always verify field names in generated schema before writing TypeScript types.**
 
+### NEVER Use "status" as a Field ID — Reserved by Drupal
+
+**Problem**: Using `"status"` as a field ID in DC import conflicts with Drupal's built-in `status` field (which controls publication state: published/unpublished). When you define a custom field with `"id": "status"`, Drupal interprets this as the publication status, causing all imported content of that type to be **unpublished** and invisible to GraphQL queries.
+
+**Symptoms**:
+- Content is successfully imported (no errors)
+- GraphQL queries return empty arrays for that content type
+- Content exists in Drupal admin but is unpublished
+- Detail pages via path routing may work, but listing queries return nothing
+
+**Example of the problem**:
+```json
+// WRONG — "status" conflicts with Drupal's reserved field
+{
+  "bundle": "judge",
+  "fields": [
+    {
+      "id": "status",
+      "label": "Status",
+      "type": "string"
+    }
+  ]
+}
+// Result: All judge nodes created as unpublished
+
+// CORRECT — Use a different field name
+{
+  "bundle": "judge",
+  "fields": [
+    {
+      "id": "judge_status",
+      "label": "Judge Status",
+      "type": "string"
+    }
+  ]
+}
+// Or use descriptive alternatives:
+// "employment_status", "active_status", "current_status", "position_status"
+```
+
+**DC Import Warning Message**: When this happens, the import will show:
+`"Using existing reserved field: Status (status) for node [content_type]"`
+
+This warning indicates the conflict — if you see this message, your content will be created as unpublished.
+
+**Solution**: Never use `"status"` as a field ID. Use descriptive alternatives like `judge_status`, `employment_status`, `active_status`, or any other unique identifier that doesn't conflict with Drupal's reserved field names.
+
+**Other Reserved Field Names to Avoid**:
+- `status` - Publication status
+- `title` - Node title (use this, but it's handled automatically)
+- `created` - Creation timestamp
+- `changed` - Last modified timestamp
+- `uid` - Author user ID
+- `langcode` - Language code
+
 ## Summary
 
 This comprehensive guide enables "one-shot" prompts like "create a product catalog" to result in complete, working implementations from backend to frontend, with known limitations documented for efficient troubleshooting.
