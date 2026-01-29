@@ -1,0 +1,228 @@
+{
+  "model": [
+    {
+      "bundle": "homepage",
+      "label": "Homepage",
+      "description": "Landing page with hero section, features, and call-to-action areas",
+      "fields": [
+        {
+          "id": "hero_title",
+          "label": "Hero Title",
+          "type": "string",
+          "description": "Main headline in the hero section"
+        },
+        {
+          "id": "hero_subtitle",
+          "label": "Hero Subtitle",
+          "type": "string",
+          "description": "Secondary text below the hero title"
+        },
+        {
+          "id": "hero_description",
+          "label": "Hero Description",
+          "type": "text",
+          "description": "Longer descriptive text for the hero section"
+        },
+        {
+          "id": "features_title",
+          "label": "Features Section Title",
+          "type": "string"
+        },
+        {
+          "id": "features_subtitle",
+          "label": "Features Section Subtitle",
+          "type": "string"
+        },
+        {
+          "id": "features_items",
+          "label": "Feature Items",
+          "type": "paragraph(feature_item)[]",
+          "description": "List of feature highlight blocks"
+        },
+        {
+          "id": "cta_title",
+          "label": "CTA Section Title",
+          "type": "string"
+        },
+        {
+          "id": "cta_description",
+          "label": "CTA Description",
+          "type": "text"
+        },
+        {
+          "id": "cta_primary",
+          "label": "Primary CTA Text",
+          "type": "string"
+        },
+        {
+          "id": "cta_secondary",
+          "label": "Secondary CTA Text",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "bundle": "article",
+      "label": "Article",
+      "description": "Time-sensitive content such as news articles, press releases, or blog posts",
+      "body": true,
+      "fields": [
+        {
+          "id": "image",
+          "label": "Featured Image",
+          "type": "image",
+          "description": "Main image for the article"
+        },
+        {
+          "id": "tags",
+          "label": "Tags",
+          "type": "term(tags)[]",
+          "description": "Categorization tags for the article"
+        }
+      ]
+    },
+    {
+      "bundle": "page",
+      "label": "Basic Page",
+      "description": "Static content pages for about, contact, policies, etc.",
+      "body": true,
+      "fields": []
+    },
+    {
+      "entity": "paragraph",
+      "bundle": "feature_item",
+      "label": "Feature Item",
+      "description": "Individual feature highlight with icon, title, and description",
+      "fields": [
+        {
+          "id": "icon",
+          "label": "Icon",
+          "type": "string",
+          "description": "Icon name or emoji for the feature"
+        },
+        {
+          "id": "title",
+          "label": "Title",
+          "type": "string!",
+          "description": "Feature title (required)"
+        },
+        {
+          "id": "description",
+          "label": "Description",
+          "type": "text",
+          "description": "Detailed description of the feature"
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "id": "feature-cms",
+      "type": "paragraph.feature_item",
+      "values": {
+        "icon": "database",
+        "title": "Powerful CMS",
+        "description": "Drupal's enterprise-grade content management with flexible content modeling and powerful editing tools."
+      }
+    },
+    {
+      "id": "feature-fast",
+      "type": "paragraph.feature_item",
+      "values": {
+        "icon": "zap",
+        "title": "Lightning Fast",
+        "description": "Next.js delivers blazing fast page loads with automatic code splitting and optimized rendering."
+      }
+    },
+    {
+      "id": "feature-security",
+      "type": "paragraph.feature_item",
+      "values": {
+        "icon": "shield",
+        "title": "Enterprise Security",
+        "description": "Built-in security features protect your content with role-based access control and secure APIs."
+      }
+    },
+    {
+      "id": "feature-developer",
+      "type": "paragraph.feature_item",
+      "values": {
+        "icon": "code",
+        "title": "Developer Friendly",
+        "description": "Modern development workflow with GraphQL APIs, TypeScript support, and hot reloading."
+      }
+    },
+    {
+      "id": "feature-stack",
+      "type": "paragraph.feature_item",
+      "values": {
+        "icon": "layers",
+        "title": "Modern Stack",
+        "description": "React, Next.js, Tailwind CSS, and GraphQL - the tools developers love to use."
+      }
+    },
+    {
+      "id": "feature-scale",
+      "type": "paragraph.feature_item",
+      "values": {
+        "icon": "globe",
+        "title": "Global Scale",
+        "description": "Deploy to edge networks worldwide for sub-second page loads anywhere on the planet."
+      }
+    },
+    {
+      "id": "homepage",
+      "type": "node.homepage",
+      "path": "/homepage",
+      "values": {
+        "title": "Decoupled Drupal Homepage",
+        "hero_title": "Build Modern Web Experiences",
+        "hero_subtitle": "Powered by Drupal + Next.js",
+        "hero_description": "<p>Create blazing-fast websites with the power of Drupal's content management and Next.js's modern frontend capabilities.</p>",
+        "features_title": "Why Decoupled?",
+        "features_subtitle": "The best of both worlds: enterprise CMS meets modern frontend",
+        "features_items": [
+          "@feature-cms",
+          "@feature-fast",
+          "@feature-security",
+          "@feature-developer",
+          "@feature-stack",
+          "@feature-scale"
+        ],
+        "cta_title": "Ready to Get Started?",
+        "cta_description": "<p>Start building your next project with Decoupled Drupal. Import your content model, customize your frontend, and deploy in minutes.</p>",
+        "cta_primary": "View Articles",
+        "cta_secondary": "Learn More"
+      }
+    },
+    {
+      "id": "welcome-article",
+      "type": "node.article",
+      "path": "/welcome-to-decoupled-drupal",
+      "values": {
+        "title": "Welcome to Decoupled Drupal",
+        "body": "<p>Congratulations on setting up your new Decoupled Drupal site! This architecture combines the powerful content management capabilities of Drupal with the modern frontend experience of Next.js.</p><h2>Key Benefits</h2><ul><li><strong>Flexibility</strong> - Use any frontend framework while keeping Drupal's robust CMS</li><li><strong>Performance</strong> - Static generation and edge caching for lightning-fast page loads</li><li><strong>Security</strong> - Separate frontend and backend reduces attack surface</li><li><strong>Developer Experience</strong> - Modern tooling with React, GraphQL, and TypeScript</li></ul><h2>Next Steps</h2><p>Explore the GraphQL API at <code>/graphql</code> to see your content schema. Customize the Next.js frontend in the <code>app/</code> directory. Create new content types using the CLI import command.</p>",
+        "tags": ["getting-started", "drupal", "nextjs"]
+      }
+    },
+    {
+      "id": "content-authoring-article",
+      "type": "node.article",
+      "path": "/content-authoring-with-paragraphs",
+      "values": {
+        "title": "Content Authoring with Paragraphs",
+        "body": "<p>Paragraphs in Drupal allow you to create flexible, structured content by combining reusable components. This article explains how to use paragraphs effectively.</p><h2>What are Paragraphs?</h2><p>Paragraphs are reusable content components that can be combined in different ways to build pages. Instead of a single body field, you can add multiple paragraph types like text blocks, images, call-to-actions, and more.</p><h2>Benefits of Paragraphs</h2><ul><li>Consistent design across all pages</li><li>Flexible content layouts</li><li>Reusable components</li><li>Better content structure for frontend rendering</li></ul><h2>Using Paragraphs with GraphQL</h2><p>When querying paragraph fields via GraphQL, you'll receive an array of typed paragraph objects that you can render conditionally in your Next.js components.</p>",
+        "tags": ["content-management", "paragraphs", "drupal"]
+      }
+    },
+    {
+      "id": "about-page",
+      "type": "node.page",
+      "path": "/about",
+      "values": {
+        "title": "About Us",
+        "body": "<p>This is a sample Basic Page created by the starter content import. Basic Pages are ideal for static content like About, Contact, Privacy Policy, and Terms of Service.</p><p>Unlike Articles, Basic Pages don't display author information or publication dates, making them perfect for timeless content.</p>"
+      }
+    }
+  ]
+}
