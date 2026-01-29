@@ -11,8 +11,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "setup-content": "npx decoupled-cli content import --file data/starter-content.json",
-    "setup-content:preview": "npx decoupled-cli content import --file data/starter-content.json --preview",
+    "setup-content": "npx decoupled-cli@latest content import --file data/starter-content.json",
+    "setup-content:preview": "npx decoupled-cli@latest content import --file data/starter-content.json --preview",
     "test": "npx decoupled-cli health check && echo '✅ CLI health check passed'",
     "test:cli": "npx decoupled-cli download claude --help && npx decoupled-cli content import --example > /tmp/example.json && echo '✅ CLI tests passed'",
     "generate-schema": "tsx scripts/generate-schema.ts"

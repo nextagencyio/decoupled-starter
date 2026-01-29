@@ -91,31 +91,29 @@ export default async function Articles() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
                 </svg>
               </div>
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">No articles found</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">No articles yet</h2>
               <p className="text-gray-600 mb-8 max-w-md mx-auto">
-                It looks like there are no articles available yet. This could be because your Drupal backend
-                isn&apos;t configured properly or no content has been created yet.
+                Import the starter content to see sample articles, or create your own in Drupal.
               </p>
               <div className="bg-gray-50 rounded-lg p-6 text-left max-w-lg mx-auto">
-                <h3 className="font-medium text-gray-900 mb-3">To get started:</h3>
-                <ul className="text-sm text-gray-600 space-y-2">
-                  <li className="flex items-start">
-                    <span className="w-5 h-5 text-blue-500 mr-2">•</span>
-                    Ensure your Drupal backend is running
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-5 h-5 text-blue-500 mr-2">•</span>
-                    Verify GraphQL Compose and GraphQL Compose Edges are enabled
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-5 h-5 text-blue-500 mr-2">•</span>
-                    Create some article content in your Drupal admin
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-5 h-5 text-blue-500 mr-2">•</span>
-                    Check your environment variables in .env.local
-                  </li>
-                </ul>
+                <h3 className="font-medium text-gray-900 mb-3">Import starter content:</h3>
+                <div className="bg-gray-900 rounded-lg p-3 mb-4">
+                  <code className="text-emerald-400 font-mono text-sm">
+                    npm run setup-content
+                  </code>
+                </div>
+                <p className="text-sm text-gray-600 mb-4">
+                  Or manually import via your{' '}
+                  <a
+                    href={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL || ''}/admin/content/import`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline"
+                  >
+                    Drupal admin panel
+                  </a>{' '}
+                  using the JSON from <code className="bg-gray-200 px-1 rounded">data/starter-content.json</code>.
+                </p>
               </div>
             </div>
           </div>

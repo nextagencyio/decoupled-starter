@@ -26,38 +26,19 @@ export default function CTASection({ homepageContent }: CTASectionProps) {
           )}
         </div>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          {hasHomepageContent && homepageContent.ctaPrimary ? (
-            <Link
-              href={homepageContent.ctaPrimary.url}
-              className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-colors duration-200 font-semibold"
-            >
-              {homepageContent.ctaPrimary.title}
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Link>
-          ) : (
-            <Link
-              href="/articles"
-              className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-colors duration-200 font-semibold"
-            >
-              Browse Articles
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Link>
-          )}
-          {hasHomepageContent && homepageContent.ctaSecondary ? (
-            <Link
-              href={homepageContent.ctaSecondary.url}
-              className="inline-flex items-center px-8 py-3 border-2 border-gray-400 text-gray-300 rounded-lg hover:bg-gray-800 hover:border-gray-300 transition-colors duration-200 font-semibold"
-            >
-              {homepageContent.ctaSecondary.title}
-            </Link>
-          ) : (
-            <Link
-              href="/contact"
-              className="inline-flex items-center px-8 py-3 border-2 border-gray-400 text-gray-300 rounded-lg hover:bg-gray-800 hover:border-gray-300 transition-colors duration-200 font-semibold"
-            >
-              Contact Us
-            </Link>
-          )}
+          <Link
+            href="/articles"
+            className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-colors duration-200 font-semibold"
+          >
+            {hasHomepageContent && homepageContent.ctaPrimary ? homepageContent.ctaPrimary : 'Browse Articles'}
+            <ArrowRight className="ml-2 w-5 h-5" />
+          </Link>
+          <Link
+            href="/contact"
+            className="inline-flex items-center px-8 py-3 border-2 border-gray-400 text-gray-300 rounded-lg hover:bg-gray-800 hover:border-gray-300 transition-colors duration-200 font-semibold"
+          >
+            {hasHomepageContent && homepageContent.ctaSecondary ? homepageContent.ctaSecondary : 'Contact Us'}
+          </Link>
         </div>
       </div>
     </section>

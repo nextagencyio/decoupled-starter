@@ -39,8 +39,8 @@ export default function FeaturesSection({ homepageContent }: FeaturesSectionProp
             }
           </h2>
           <div className="text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
-            {hasHomepageContent && homepageContent.featuresSubtitle?.processed ? (
-              <div dangerouslySetInnerHTML={{ __html: homepageContent.featuresSubtitle.processed }} />
+            {hasHomepageContent && homepageContent.featuresSubtitle ? (
+              <p>{homepageContent.featuresSubtitle}</p>
             ) : (
               <p>Combine the content management power of Drupal with modern frontend technologies for the ultimate development experience.</p>
             )}
@@ -52,10 +52,10 @@ export default function FeaturesSection({ homepageContent }: FeaturesSectionProp
             {features.map((feature: any, index: number) => {
               // Cycle through colors based on index
               const iconColor = FEATURE_COLORS[index % FEATURE_COLORS.length]
-              const title = feature.featureTitle
-              const description = feature.featureDescription?.processed
+              const title = feature.title
+              const description = feature.description?.processed
               const inferred = inferIconFromText(title, description)
-              const iconName = (feature as any).icon || inferred || 'database'
+              const iconName = feature.icon || inferred || 'database'
 
               return (
                 <div key={feature.id} className="bg-white p-6 md:p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200">

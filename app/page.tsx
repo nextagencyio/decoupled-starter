@@ -1,5 +1,6 @@
 import HomepageRenderer from './components/HomepageRenderer'
 import SetupGuide from './components/SetupGuide'
+import ContentSetupGuide from './components/ContentSetupGuide'
 import { Metadata } from 'next'
 import { headers } from 'next/headers'
 import { getServerApolloClient } from '../lib/apollo-client'
@@ -49,7 +50,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function Home() {
   // Check if the app is properly configured
   const configStatus = checkConfiguration()
-  
+
   if (!configStatus.isConfigured) {
     return <SetupGuide missingVars={configStatus.missingVars} />
   }
@@ -58,6 +59,12 @@ export default async function Home() {
   const apolloClient = getServerApolloClient(requestHeaders)
   const data = await getHomepageData(apolloClient)
   const homepageContent = data?.nodeHomepages?.nodes?.[0]
+
+  // Check if connected but no content exists - show content import guide
+  if (!homepageContent) {
+    const drupalBaseUrl = process.env.NEXT_PUBLIC_DRUPAL_BASE_URL
+    return <ContentSetupGuide drupalBaseUrl={drupalBaseUrl} />
+  }
 
   return <HomepageRenderer homepageContent={homepageContent} />
 }

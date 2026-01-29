@@ -48,28 +48,20 @@ export interface DrupalHomepage extends DrupalNode {
     processed: string
   }
   featuresTitle?: string
-  featuresSubtitle?: {
-    processed: string
-  }
+  featuresSubtitle?: string
   featuresItems?: DrupalFeature[]
   ctaTitle?: string
   ctaDescription?: {
     processed: string
   }
-  ctaPrimary?: {
-    title: string
-    url: string
-  }
-  ctaSecondary?: {
-    title: string
-    url: string
-  }
+  ctaPrimary?: string
+  ctaSecondary?: string
 }
 
 export interface DrupalFeature {
   id: string
-  featureTitle: string
-  featureDescription?: {
+  title: string
+  description?: {
     processed: string
   }
   icon?: string

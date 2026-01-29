@@ -86,30 +86,23 @@ export const GET_HOMEPAGE_DATA = gql`
           processed
         }
         featuresTitle
-        featuresSubtitle {
-          processed
-        }
+        featuresSubtitle
         featuresItems {
           ... on ParagraphFeatureItem {
             id
-            featureTitle
-            featureDescription {
+            title
+            description {
               processed
             }
+            icon
           }
         }
         ctaTitle
         ctaDescription {
           processed
         }
-        ctaPrimary {
-          title
-          url
-        }
-        ctaSecondary {
-          title
-          url
-        }
+        ctaPrimary
+        ctaSecondary
       }
     }
   }
@@ -161,30 +154,23 @@ export const GET_NODE_BY_PATH = gql`
               processed
             }
             featuresTitle
-            featuresSubtitle {
-              processed
-            }
+            featuresSubtitle
             featuresItems {
               ... on ParagraphFeatureItem {
                 id
-                featureTitle
-                featureDescription {
+                title
+                description {
                   processed
                 }
+                icon
               }
             }
             ctaTitle
             ctaDescription {
               processed
             }
-            ctaPrimary {
-              title
-              url
-            }
-            ctaSecondary {
-              title
-              url
-            }
+            ctaPrimary
+            ctaSecondary
           }
         }
       }
