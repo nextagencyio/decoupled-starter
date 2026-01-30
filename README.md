@@ -2,6 +2,8 @@
 
 A Next.js application integrated with Decoupled Drupal, built with modern web technologies.
 
+![Decoupled Starter Screenshot](docs/screenshot.png)
+
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/nextagencyio/decoupled-starter&project-name=my-app)
 
 ## Features
