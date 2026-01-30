@@ -32,7 +32,7 @@ npm install
 #### 1. Authenticate with Decoupled.io
 
 ```bash
-npx decoupled-cli auth login
+npx decoupled-cli@latest auth login
 ```
 
 This opens a browser to authenticate with your Decoupled.io account.
@@ -40,7 +40,7 @@ This opens a browser to authenticate with your Decoupled.io account.
 #### 2. Create a Drupal space
 
 ```bash
-npx decoupled-cli spaces create "My App"
+npx decoupled-cli@latest spaces create "My App"
 ```
 
 Note the space ID returned (e.g., `Space ID: 1234`). Wait ~90 seconds for provisioning.
@@ -50,7 +50,7 @@ Note the space ID returned (e.g., `Space ID: 1234`). Wait ~90 seconds for provis
 Fetch OAuth credentials and save to `.env.local`:
 
 ```bash
-npx decoupled-cli spaces env 1234 --write .env.local
+npx decoupled-cli@latest spaces env 1234 --write .env.local
 ```
 
 #### 4. Import content (optional)
@@ -58,7 +58,7 @@ npx decoupled-cli spaces env 1234 --write .env.local
 If you have a content JSON file:
 
 ```bash
-npx decoupled-cli content import --file data/content.json
+npx decoupled-cli@latest content import --file data/content.json
 ```
 
 #### 5. Start development
