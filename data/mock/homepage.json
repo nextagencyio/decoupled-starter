@@ -15,6 +15,7 @@
           "featuresSubtitle": "The best of both worlds: enterprise CMS meets modern frontend",
           "featuresItems": [
             {
+              "__typename": "ParagraphFeatureItem",
               "id": "feature-1",
               "title": "Powerful CMS",
               "description": {
@@ -23,6 +24,7 @@
               "icon": "database"
             },
             {
+              "__typename": "ParagraphFeatureItem",
               "id": "feature-2",
               "title": "Lightning Fast",
               "description": {
@@ -31,6 +33,7 @@
               "icon": "zap"
             },
             {
+              "__typename": "ParagraphFeatureItem",
               "id": "feature-3",
               "title": "Enterprise Security",
               "description": {
@@ -39,6 +42,7 @@
               "icon": "shield"
             },
             {
+              "__typename": "ParagraphFeatureItem",
               "id": "feature-4",
               "title": "Developer Friendly",
               "description": {
@@ -47,6 +51,7 @@
               "icon": "code"
             },
             {
+              "__typename": "ParagraphFeatureItem",
               "id": "feature-5",
               "title": "Modern Stack",
               "description": {
@@ -55,6 +60,7 @@
               "icon": "layers"
             },
             {
+              "__typename": "ParagraphFeatureItem",
               "id": "feature-6",
               "title": "Global Scale",
               "description": {
