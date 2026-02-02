@@ -14,7 +14,12 @@
           "changed": {
             "timestamp": 1706745600
           },
-          "image": null
+          "image": {
+            "url": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop",
+            "alt": "Code on a computer screen",
+            "width": 800,
+            "height": 400
+          }
         }
       }
     }
@@ -34,7 +39,12 @@
           "changed": {
             "timestamp": 1706659200
           },
-          "image": null
+          "image": {
+            "url": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=400&fit=crop",
+            "alt": "Laptop with coffee and notebook",
+            "width": 800,
+            "height": 400
+          }
         }
       }
     }
@@ -54,7 +64,12 @@
           "changed": {
             "timestamp": 1706572800
           },
-          "image": null
+          "image": {
+            "url": "https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=800&h=400&fit=crop",
+            "alt": "Programming code visualization",
+            "width": 800,
+            "height": 400
+          }
         }
       }
     }

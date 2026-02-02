@@ -16,7 +16,12 @@
             "processed": "<p>Congratulations on setting up your new Decoupled Drupal site! This architecture combines the powerful content management capabilities of Drupal with the modern frontend experience of Next.js.</p><h2>Key Benefits</h2><ul><li><strong>Flexibility</strong> - Use any frontend framework while keeping Drupal's robust CMS</li><li><strong>Performance</strong> - Static generation and edge caching for lightning-fast page loads</li><li><strong>Security</strong> - Separate frontend and backend reduces attack surface</li><li><strong>Developer Experience</strong> - Modern tooling with React, GraphQL, and TypeScript</li></ul><h2>Next Steps</h2><p>Explore the GraphQL API at <code>/graphql</code> to see your content schema. Customize the Next.js frontend in the <code>app/</code> directory. Create new content types using the CLI import command.</p>",
             "summary": "Congratulations on setting up your new Decoupled Drupal site! This architecture combines the powerful content management capabilities of Drupal with the modern frontend experience of Next.js."
           },
-          "image": null
+          "image": {
+            "url": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop",
+            "alt": "Code on a computer screen",
+            "width": 800,
+            "height": 400
+          }
         },
         {
           "id": "2",
@@ -32,7 +37,12 @@
             "processed": "<p>Paragraphs in Drupal allow you to create flexible, structured content by combining reusable components. This article explains how to use paragraphs effectively.</p><h2>What are Paragraphs?</h2><p>Paragraphs are reusable content components that can be combined in different ways to build pages. Instead of a single body field, you can add multiple paragraph types like text blocks, images, call-to-actions, and more.</p><h2>Benefits of Paragraphs</h2><ul><li>Consistent design across all pages</li><li>Flexible content layouts</li><li>Reusable components</li><li>Better content structure for frontend rendering</li></ul><h2>Using Paragraphs with GraphQL</h2><p>When querying paragraph fields via GraphQL, you'll receive an array of typed paragraph objects that you can render conditionally in your Next.js components.</p>",
             "summary": "Paragraphs in Drupal allow you to create flexible, structured content by combining reusable components."
           },
-          "image": null
+          "image": {
+            "url": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=400&fit=crop",
+            "alt": "Laptop with coffee and notebook",
+            "width": 800,
+            "height": 400
+          }
         },
         {
           "id": "3",
@@ -48,7 +58,12 @@
             "processed": "<p>GraphQL is a query language for APIs that gives clients the power to ask for exactly what they need. This guide will help you understand how to use GraphQL with your Decoupled Drupal setup.</p><h2>Why GraphQL?</h2><p>Unlike REST APIs where you get a fixed data structure, GraphQL lets you specify exactly which fields you want. This reduces over-fetching and under-fetching of data.</p><h2>Making Queries</h2><p>You can explore your GraphQL schema using the built-in GraphiQL interface. Try different queries to understand the structure of your content.</p>",
             "summary": "GraphQL is a query language for APIs that gives clients the power to ask for exactly what they need."
           },
-          "image": null
+          "image": {
+            "url": "https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=800&h=400&fit=crop",
+            "alt": "Programming code visualization",
+            "width": 800,
+            "height": 400
+          }
         }
       ]
     }
