@@ -1,0 +1,76 @@
+{
+  "data": {
+    "nodeHomepages": {
+      "nodes": [
+        {
+          "id": "1",
+          "title": "Decoupled Drupal Homepage",
+          "path": "/homepage",
+          "heroTitle": "Build Modern Web Experiences",
+          "heroSubtitle": "Powered by Drupal + Next.js",
+          "heroDescription": {
+            "processed": "<p>Create blazing-fast websites with the power of Drupal's content management and Next.js's modern frontend capabilities.</p>"
+          },
+          "featuresTitle": "Why Decoupled?",
+          "featuresSubtitle": "The best of both worlds: enterprise CMS meets modern frontend",
+          "featuresItems": [
+            {
+              "id": "feature-1",
+              "title": "Powerful CMS",
+              "description": {
+                "processed": "Drupal's enterprise-grade content management with flexible content modeling and powerful editing tools."
+              },
+              "icon": "database"
+            },
+            {
+              "id": "feature-2",
+              "title": "Lightning Fast",
+              "description": {
+                "processed": "Next.js delivers blazing fast page loads with automatic code splitting and optimized rendering."
+              },
+              "icon": "zap"
+            },
+            {
+              "id": "feature-3",
+              "title": "Enterprise Security",
+              "description": {
+                "processed": "Built-in security features protect your content with role-based access control and secure APIs."
+              },
+              "icon": "shield"
+            },
+            {
+              "id": "feature-4",
+              "title": "Developer Friendly",
+              "description": {
+                "processed": "Modern development workflow with GraphQL APIs, TypeScript support, and hot reloading."
+              },
+              "icon": "code"
+            },
+            {
+              "id": "feature-5",
+              "title": "Modern Stack",
+              "description": {
+                "processed": "React, Next.js, Tailwind CSS, and GraphQL - the tools developers love to use."
+              },
+              "icon": "layers"
+            },
+            {
+              "id": "feature-6",
+              "title": "Global Scale",
+              "description": {
+                "processed": "Deploy to edge networks worldwide for sub-second page loads anywhere on the planet."
+              },
+              "icon": "globe"
+            }
+          ],
+          "ctaTitle": "Ready to Get Started?",
+          "ctaDescription": {
+            "processed": "<p>Start building your next project with Decoupled Drupal. Import your content model, customize your frontend, and deploy in minutes.</p>"
+          },
+          "ctaPrimary": "View Articles",
+          "ctaSecondary": "Learn More"
+        }
+      ]
+    }
+  }
+}
