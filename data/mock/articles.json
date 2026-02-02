@@ -3,6 +3,7 @@
     "nodeArticles": {
       "nodes": [
         {
+          "__typename": "NodeArticle",
           "id": "1",
           "title": "Welcome to Decoupled Drupal",
           "path": "/articles/welcome-to-decoupled-drupal",
@@ -24,6 +25,7 @@
           }
         },
         {
+          "__typename": "NodeArticle",
           "id": "2",
           "title": "Content Authoring with Paragraphs",
           "path": "/articles/content-authoring-with-paragraphs",
@@ -45,6 +47,7 @@
           }
         },
         {
+          "__typename": "NodeArticle",
           "id": "3",
           "title": "Getting Started with GraphQL",
           "path": "/articles/getting-started-with-graphql",
