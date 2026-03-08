@@ -7,12 +7,21 @@ import { getServerApolloClient } from '../lib/apollo-client'
 import { GET_HOMEPAGE_DATA } from '../lib/queries'
 import { HomepageData } from '../lib/types'
 import { checkConfiguration } from '../lib/config-check'
+import { isDemoMode, handleMockQuery } from '../lib/demo-mode'
 
 // Enable ISR with 1 hour revalidation
 export const revalidate = 3600
 
 
 async function getHomepageData(apolloClient: ReturnType<typeof getServerApolloClient>): Promise<HomepageData | null> {
+  // In demo mode, use mock data directly without self-referencing API call
+  if (isDemoMode()) {
+    const mockResponse = handleMockQuery(JSON.stringify({
+      query: 'GetHomepageData nodeHomepages',
+    }))
+    return mockResponse?.data || null
+  }
+
   try {
     const { data } = await apolloClient.query<HomepageData>({
       query: GET_HOMEPAGE_DATA,

@@ -6,6 +6,7 @@ import { getServerApolloClient } from '@/lib/apollo-client'
 import { GET_ARTICLE_TEASERS } from '@/lib/queries'
 import { ArticleTeaserData } from '@/lib/types'
 import { Metadata } from 'next'
+import { isDemoMode, handleMockQuery } from '@/lib/demo-mode'
 
 // Enable ISR with 30 minute revalidation for articles
 export const revalidate = 1800
@@ -16,6 +17,14 @@ export const metadata: Metadata = {
 }
 
 async function getArticles(apolloClient: ReturnType<typeof getServerApolloClient>): Promise<ArticleTeaserData | null> {
+  // In demo mode, use mock data directly without self-referencing API call
+  if (isDemoMode()) {
+    const mockResponse = handleMockQuery(JSON.stringify({
+      query: 'GetArticleTeasers nodeArticles',
+    }))
+    return mockResponse?.data || null
+  }
+
   try {
     const { data } = await apolloClient.query<ArticleTeaserData>({
       query: GET_ARTICLE_TEASERS,

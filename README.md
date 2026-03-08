@@ -155,6 +155,23 @@ To convert to a production app with real data:
 
 Set `NEXT_PUBLIC_DEMO_MODE=true` in Vercel environment variables for a demo deployment.
 
+### Cloudflare Pages
+
+This starter is compatible with Cloudflare Pages via [@opennextjs/cloudflare](https://opennext.js.org/cloudflare).
+
+```bash
+# Build for Cloudflare
+npx cloudflare
+```
+
+Deploy the `.open-next/` output directory to Cloudflare Pages. Configuration is in `wrangler.jsonc` and `open-next.config.ts`.
+
+Set environment variables in the Cloudflare dashboard or `wrangler.jsonc`:
+- `NEXT_PUBLIC_DRUPAL_BASE_URL` - Your Drupal backend URL
+- `DRUPAL_CLIENT_ID` - OAuth client ID
+- `DRUPAL_CLIENT_SECRET` - OAuth client secret
+- `NEXT_PUBLIC_DEMO_MODE` - Set to `true` for a demo deployment
+
 ### Other Platforms
 Works with any Node.js hosting platform that supports Next.js.
 

@@ -6,15 +6,29 @@ import { headers } from 'next/headers'
 import { Metadata } from 'next'
 import { GET_NODE_BY_PATH } from '@/lib/queries'
 import { getServerApolloClient } from '@/lib/apollo-client'
+import { isDemoMode, handleMockQuery } from '@/lib/demo-mode'
 
 export const revalidate = 300
+
+async function getNodeByPath(path: string) {
+  if (isDemoMode()) {
+    const mockResponse = handleMockQuery(JSON.stringify({
+      query: 'GetNodeByPath',
+      variables: { path },
+    }))
+    return mockResponse?.data || null
+  }
+
+  const apollo = getServerApolloClient(await headers())
+  const { data } = await apollo.query({ query: GET_NODE_BY_PATH, variables: { path }, fetchPolicy: 'no-cache' })
+  return data
+}
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string[] }> }): Promise<Metadata> {
   const resolvedParams = await params
   const path = `/${(resolvedParams.slug || []).join('/')}`
   try {
-    const apollo = getServerApolloClient(await headers())
-    const { data } = await apollo.query({ query: GET_NODE_BY_PATH, variables: { path } })
+    const data = await getNodeByPath(path)
     const title = data?.route?.entity?.title || 'Page'
     return { title }
   } catch {
@@ -37,13 +51,8 @@ function PageNotFound({ path }: { path: string }) {
 export default async function GenericPage({ params }: { params: Promise<{ slug: string[] }> }) {
   const resolvedParams = await params
   const path = `/${(resolvedParams.slug || []).join('/')}`
-  const apollo = getServerApolloClient(await headers())
-
   try {
-    console.log('Querying for path:', path)
-    const result = await apollo.query({ query: GET_NODE_BY_PATH, variables: { path }, fetchPolicy: 'no-cache' })
-    console.log('GraphQL result:', JSON.stringify(result, null, 2))
-    const { data } = result
+    const data = await getNodeByPath(path)
     const entity = data?.route?.entity
 
     if (!entity) {
