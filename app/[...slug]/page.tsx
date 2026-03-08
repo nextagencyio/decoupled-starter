@@ -9,6 +9,7 @@ import { getServerApolloClient } from '@/lib/apollo-client'
 import { isDemoMode, handleMockQuery } from '@/lib/demo-mode'
 
 export const revalidate = 300
+export const dynamic = 'force-dynamic'
 
 async function getNodeByPath(path: string) {
   if (isDemoMode()) {

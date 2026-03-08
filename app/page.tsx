@@ -11,6 +11,7 @@ import { isDemoMode, handleMockQuery } from '../lib/demo-mode'
 
 // Enable ISR with 1 hour revalidation
 export const revalidate = 3600
+export const dynamic = 'force-dynamic'
 
 
 async function getHomepageData(apolloClient: ReturnType<typeof getServerApolloClient>): Promise<HomepageData | null> {

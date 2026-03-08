@@ -10,6 +10,7 @@ import { isDemoMode, handleMockQuery } from '@/lib/demo-mode'
 
 // Enable ISR with 30 minute revalidation for articles
 export const revalidate = 1800
+export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'Articles - Decoupled Drupal',
