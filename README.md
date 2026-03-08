@@ -161,10 +161,10 @@ This starter is compatible with Cloudflare Pages via [@opennextjs/cloudflare](ht
 
 ```bash
 # Build for Cloudflare
-npx cloudflare
+npm run build:cloudflare
 ```
 
-Deploy the `.open-next/` output directory to Cloudflare Pages. Configuration is in `wrangler.jsonc` and `open-next.config.ts`.
+Deploy the generated `.open-next/` worker with Wrangler. Configuration is in `wrangler.jsonc` and `open-next.config.ts`.
 
 Set environment variables in the Cloudflare dashboard or `wrangler.jsonc`:
 - `NEXT_PUBLIC_DRUPAL_BASE_URL` - Your Drupal backend URL
