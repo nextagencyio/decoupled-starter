@@ -31,24 +31,24 @@ export default function ArticleTeaser({ article }: ArticleTeaserProps) {
             />
           </div>
         )}
-        
+
         <div className="p-6 flex-1 flex flex-col">
           <div className="flex items-center gap-2 text-sm text-gray-500 mb-2">
             <time dateTime={new Date(article.created.timestamp * 1000).toISOString()}>
               {formatDate(article.created.timestamp)}
             </time>
           </div>
-          
+
           <h2 className="text-xl font-semibold text-gray-900 mb-3 line-clamp-2 hover:text-purple-600 transition-colors duration-200">
             {article.title}
           </h2>
-          
+
           {summary && (
             <p className="text-gray-600 line-clamp-3 mb-4">
               {summary}
             </p>
           )}
-          
+
           <div className="inline-flex items-center text-purple-600 hover:text-blue-800 font-medium transition-colors duration-200 mt-auto">
             Read more
             <svg className="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">

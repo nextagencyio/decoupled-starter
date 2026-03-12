@@ -7,15 +7,15 @@ export type ImageSize = 'THUMBNAIL' | 'MEDIUM' | 'LARGE'
  */
 function proxyDrupalUrl(url: string): string {
   if (!url) return '';
-  
+
   const drupalBaseUrl = process.env.NEXT_PUBLIC_DRUPAL_BASE_URL;
   if (!drupalBaseUrl || !url.startsWith(drupalBaseUrl)) {
     return url; // Return as-is if not a Drupal URL
   }
-  
+
   // Extract the path after the Drupal base URL (should be /sites/...)
   const path = url.substring(drupalBaseUrl.length + 1); // +1 to remove leading slash
-  
+
   // Return the path directly - Next.js rewrites will handle the proxying
   return `/${path}`;
 }
@@ -29,25 +29,25 @@ export function getImageUrl(
   context: 'hero' | 'teaser' | 'thumbnail' | 'full' = 'full'
 ): string {
   if (!image) return ''
-  
+
   // For hero contexts, balance quality vs file size for ~832px container
   if (context === 'hero' && preferredSize === 'LARGE') {
     const largeVariation = image.variations?.find(v => v.name === 'LARGE')
-    
+
     // If LARGE variation is adequate (at least 1200px for retina), use it
     if (largeVariation && largeVariation.width && largeVariation.width >= 1200) {
       return proxyDrupalUrl(largeVariation.url)
     }
-    
+
     // Otherwise, accept using original even if large, since LARGE is too small (480px)
     // Next.js Image will optimize it appropriately
     return proxyDrupalUrl(image.url)
   }
-  
+
   // Try to find the preferred size variation, but always fallback to original
   // since image style variations may not exist on the Drupal backend
   const preferredVariation = image.variations?.find(v => v.name === preferredSize)
-  
+
   // For now, always use the original image since style variations aren't working
   // TODO: Fix Drupal image style generation or verify variations exist before using
   return proxyDrupalUrl(image.url)
@@ -61,7 +61,7 @@ export function getImageDimensions(
   preferredSize: ImageSize = 'MEDIUM'
 ): { width: number; height: number } | null {
   if (!image) return null
-  
+
   // Try to find the preferred size variation
   const preferredVariation = image.variations?.find(v => v.name === preferredSize)
   if (preferredVariation) {
@@ -70,7 +70,7 @@ export function getImageDimensions(
       height: preferredVariation.height
     }
   }
-  
+
   // Fallback to original image dimensions
   if (image.width && image.height) {
     return {
@@ -78,7 +78,7 @@ export function getImageDimensions(
       height: image.height
     }
   }
-  
+
   return null
 }
 
@@ -87,19 +87,19 @@ export function getImageDimensions(
  */
 export function generateSrcSet(image: DrupalArticle['image']): string {
   if (!image || !image.variations) return proxyDrupalUrl(image?.url || '')
-  
+
   const srcSetEntries: string[] = []
-  
+
   // Add variations to srcSet
   image.variations.forEach(variation => {
     srcSetEntries.push(`${proxyDrupalUrl(variation.url)} ${variation.width}w`)
   })
-  
+
   // Add original image as largest option
   if (image.width && image.url) {
     srcSetEntries.push(`${proxyDrupalUrl(image.url)} ${image.width}w`)
   }
-  
+
   return srcSetEntries.join(', ')
 }
 
@@ -112,6 +112,6 @@ export function getAspectRatio(
 ): number | null {
   const dimensions = getImageDimensions(image, preferredSize)
   if (!dimensions) return null
-  
+
   return dimensions.width / dimensions.height
 }
