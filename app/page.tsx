@@ -1,11 +1,8 @@
+import { getClient } from '@/lib/drupal-client'
 import HomepageRenderer from './components/HomepageRenderer'
 import SetupGuide from './components/SetupGuide'
 import ContentSetupGuide from './components/ContentSetupGuide'
 import { Metadata } from 'next'
-import { headers } from 'next/headers'
-import { getServerApolloClient } from '../lib/apollo-client'
-import { GET_HOMEPAGE_DATA } from '../lib/queries'
-import { HomepageData } from '../lib/types'
 import { checkConfiguration } from '../lib/config-check'
 import { isDemoMode, handleMockQuery } from '../lib/demo-mode'
 
@@ -14,26 +11,6 @@ export const revalidate = 3600
 export const dynamic = 'force-dynamic'
 
 
-async function getHomepageData(apolloClient: ReturnType<typeof getServerApolloClient>): Promise<HomepageData | null> {
-  // In demo mode, use mock data directly without self-referencing API call
-  if (isDemoMode()) {
-    const mockResponse = handleMockQuery(JSON.stringify({
-      query: 'GetHomepageData nodeHomepages',
-    }))
-    return mockResponse?.data || null
-  }
-
-  try {
-    const { data } = await apolloClient.query<HomepageData>({
-      query: GET_HOMEPAGE_DATA,
-      fetchPolicy: 'cache-first', // Use cache for ISR
-    })
-    return data
-  } catch (error) {
-    console.error('Error fetching homepage data:', error)
-    return null
-  }
-}
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = 'Modern Headless CMS Powered by Drupal'
@@ -65,10 +42,8 @@ export default async function Home() {
     return <SetupGuide missingVars={configStatus.missingVars} />
   }
 
-  const requestHeaders = await headers()
-  const apolloClient = getServerApolloClient(requestHeaders)
-  const data = await getHomepageData(apolloClient)
-  const homepageContent = data?.nodeHomepages?.nodes?.[0]
+  const client = getClient()
+  const homepageContent = await client.getEntryByPath('/') as any
 
   // Check if connected but no content exists - show content import guide
   if (!homepageContent) {

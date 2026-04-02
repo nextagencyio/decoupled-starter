@@ -1,11 +1,9 @@
+import { getClient } from '@/lib/drupal-client'
 import Header from '../components/Header'
 import ErrorBoundary from '../components/ErrorBoundary'
 import HomepageRenderer from '../components/HomepageRenderer'
 import ResponsiveImage from '../components/ResponsiveImage'
-import { headers } from 'next/headers'
 import { Metadata } from 'next'
-import { GET_NODE_BY_PATH } from '@/lib/queries'
-import { getServerApolloClient } from '@/lib/apollo-client'
 import { isDemoMode, handleMockQuery } from '@/lib/demo-mode'
 
 export const revalidate = 300
@@ -20,8 +18,8 @@ async function getNodeByPath(path: string) {
     return mockResponse?.data || null
   }
 
-  const apollo = getServerApolloClient(await headers())
-  const { data } = await apollo.query({ query: GET_NODE_BY_PATH, variables: { path }, fetchPolicy: 'no-cache' })
+  const client = getClient()
+  const entity = await client.getEntryByPath(path) as any
   return data
 }
 
@@ -54,8 +52,6 @@ export default async function GenericPage({ params }: { params: Promise<{ slug: 
   const path = `/${(resolvedParams.slug || []).join('/')}`
   try {
     const data = await getNodeByPath(path)
-    const entity = data?.route?.entity
-
     if (!entity) {
       return (
         <div className="min-h-screen bg-gray-50">

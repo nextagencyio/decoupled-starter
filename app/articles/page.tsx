@@ -1,8 +1,7 @@
+import { getClient } from '@/lib/drupal-client'
 import Header from '../components/Header'
 import ArticleTeaser from '../components/ArticleTeaser'
 import ErrorBoundary from '../components/ErrorBoundary'
-import { headers } from 'next/headers'
-import { getServerApolloClient } from '@/lib/apollo-client'
 import { GET_ARTICLE_TEASERS } from '@/lib/queries'
 import { ArticleTeaserData } from '@/lib/types'
 import { Metadata } from 'next'
@@ -17,7 +16,7 @@ export const metadata: Metadata = {
   description: 'Discover the latest insights, tutorials, and updates from the Decoupled Drupal community.',
 }
 
-async function getArticles(apolloClient: ReturnType<typeof getServerApolloClient>): Promise<ArticleTeaserData | null> {
+async function getArticles(client: { raw: Function }): Promise<ArticleTeaserData | null> {
   // In demo mode, use mock data directly without self-referencing API call
   if (isDemoMode()) {
     const mockResponse = handleMockQuery(JSON.stringify({
@@ -27,11 +26,7 @@ async function getArticles(apolloClient: ReturnType<typeof getServerApolloClient
   }
 
   try {
-    const { data } = await apolloClient.query<ArticleTeaserData>({
-      query: GET_ARTICLE_TEASERS,
-      variables: { first: 12 },
-      fetchPolicy: 'cache-first',
-    })
+    const { data } = await client.raw(GET_ARTICLE_TEASERS, { first: 12 })
     return data
   } catch (error) {
     console.error('Error fetching articles:', error)
@@ -64,8 +59,7 @@ function ErrorState({ error }: { error: string }) {
 }
 
 export default async function Articles() {
-  const requestHeaders = await headers()
-  const apolloClient = getServerApolloClient(requestHeaders)
+  const client = getClient()
   const data = await getArticles(apolloClient)
 
   if (!data) {
