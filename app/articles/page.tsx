@@ -26,7 +26,7 @@ async function getArticles(client: { raw: Function }): Promise<ArticleTeaserData
   }
 
   try {
-    const { data } = await client.raw(GET_ARTICLE_TEASERS, { first: 12 })
+    const data = await client.raw(GET_ARTICLE_TEASERS, { first: 12 })
     return data
   } catch (error) {
     console.error('Error fetching articles:', error)
