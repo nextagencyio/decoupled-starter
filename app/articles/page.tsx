@@ -60,7 +60,7 @@ function ErrorState({ error }: { error: string }) {
 
 export default async function Articles() {
   const client = getClient()
-  const data = await getArticles(apolloClient)
+  const data = await getArticles(client)
 
   if (!data) {
     return (

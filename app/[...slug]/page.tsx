@@ -15,12 +15,12 @@ async function getNodeByPath(path: string) {
       query: 'GetNodeByPath',
       variables: { path },
     }))
-    return mockResponse?.data || null
+    return mockResponse?.data?.route?.entity || null
   }
 
   const client = getClient()
   const entity = await client.getEntryByPath(path) as any
-  return data
+  return entity
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string[] }> }): Promise<Metadata> {
@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const path = `/${(resolvedParams.slug || []).join('/')}`
   try {
     const data = await getNodeByPath(path)
-    const title = data?.route?.entity?.title || 'Page'
+    const title = data?.title || 'Page'
     return { title }
   } catch {
     return { title: 'Page' }
@@ -51,7 +51,7 @@ export default async function GenericPage({ params }: { params: Promise<{ slug: 
   const resolvedParams = await params
   const path = `/${(resolvedParams.slug || []).join('/')}`
   try {
-    const data = await getNodeByPath(path)
+    const entity = await getNodeByPath(path)
     if (!entity) {
       return (
         <div className="min-h-screen bg-gray-50">
