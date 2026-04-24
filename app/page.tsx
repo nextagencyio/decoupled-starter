@@ -43,7 +43,32 @@ export default async function Home() {
   }
 
   const client = getClient()
-  const homepageContent = await client.getEntryByPath('/') as any
+
+  // Try the conventional `/` alias first (user-configured homepage).
+  // Fall back to the first published Homepage node — dc_import ships
+  // the Homepage node with alias `/homepage`, not `/`, so relying on
+  // path resolution alone leaves a fully-imported site stuck on the
+  // "Almost There" guide.
+  let homepageContent = await client.getEntryByPath('/') as any
+  if (!homepageContent) {
+    const raw: any = await client.raw(`
+      query FirstHomepage {
+        nodeHomepages(first: 1) {
+          nodes {
+            __typename id title path
+            heroTitle heroSubtitle
+            heroDescription { processed }
+            featuresTitle featuresSubtitle
+            featuresItems { ... on ParagraphFeatureItem { id title icon description { processed } } }
+            ctaTitle
+            ctaDescription { processed }
+            ctaPrimary ctaSecondary
+          }
+        }
+      }
+    `)
+    homepageContent = raw?.nodeHomepages?.nodes?.[0] ?? raw?.data?.nodeHomepages?.nodes?.[0] ?? null
+  }
 
   // Check if connected but no content exists - show content import guide
   if (!homepageContent) {
