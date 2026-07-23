@@ -1,0 +1,3 @@
+export const production = {"NEXT_PUBLIC_DRUPAL_BASE_URL":"https://bwat5i0.decoupled.website","NEXT_IMAGE_DOMAIN":"bwat5i0.decoupled.website","DRUPAL_CLIENT_ID":"cC8FbYkKbVgmXWc_2ZP1mriw9Q8Ypi2UV7YAcH-E4Jw","DRUPAL_CLIENT_SECRET":"swithole","DRUPAL_REVALIDATE_SECRET":"70fef93982eebbf539ccefa12c0ded20","NODE_TLS_REJECT_UNAUTHORIZED":"0","NEXT_PUBLIC_DEMO_MODE":"true"};
+export const development = {"NEXT_PUBLIC_DRUPAL_BASE_URL":"https://bwat5i0.decoupled.website","NEXT_IMAGE_DOMAIN":"bwat5i0.decoupled.website","DRUPAL_CLIENT_ID":"cC8FbYkKbVgmXWc_2ZP1mriw9Q8Ypi2UV7YAcH-E4Jw","DRUPAL_CLIENT_SECRET":"swithole","DRUPAL_REVALIDATE_SECRET":"70fef93982eebbf539ccefa12c0ded20","NODE_TLS_REJECT_UNAUTHORIZED":"0","NEXT_PUBLIC_DEMO_MODE":"true"};
+export const test = {};

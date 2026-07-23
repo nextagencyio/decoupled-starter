@@ -1,0 +1,3 @@
+module.exports=[46814,a=>{"use strict";function b({children:a}){return a}a.s(["default",()=>b,"metadata",0,{title:"Articles",description:"Discover the latest insights, tutorials, and updates from the Decoupled Drupal community. Learn about headless CMS, GraphQL, and modern web development.",keywords:["Decoupled Drupal Articles","Headless CMS Tutorials","GraphQL Guides","Next.js Tips","Web Development"]}])}];
+
+//# sourceMappingURL=app_articles_layout_tsx_508cd24b._.js.map

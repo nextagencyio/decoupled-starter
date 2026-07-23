@@ -1,0 +1,14 @@
+{
+  "/[...slug]/page": "/[...slug]",
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/api/graphql/route": "/api/graphql",
+  "/api/proxy/sites/[...path]/route": "/api/proxy/sites/[...path]",
+  "/api/revalidate/route": "/api/revalidate",
+  "/apple-icon/route": "/apple-icon",
+  "/articles/page": "/articles",
+  "/contact/page": "/contact",
+  "/icon.svg/route": "/icon.svg",
+  "/icon/route": "/icon",
+  "/page": "/"
+}
